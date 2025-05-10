@@ -1,0 +1,82 @@
+[
+  {
+    "title": "Default",
+    "description": "Clean and minimal default theme with responsive design",
+    "version": "1.0.0",
+    "author": "LebCit",
+    "authorUrl": "https://lebcit.github.io/",
+    "tags": [
+      "default",
+      "minimal",
+      "responsive",
+      "blog"
+    ],
+    "license": "MIT",
+    "features": [
+      "Responsive Design",
+      "SEO Optimized",
+      "Article Cards",
+      "Related Articles",
+      "One Column"
+    ],
+    "screenshot": "",
+    "lastUpdated": "2025-05-11T00:19:49+03:00",
+    "marketplaceName": "default",
+    "sourceRepo": "LebCit/aether-themes"
+  },
+  {
+    "title": "Midday",
+    "description": "Clean and responsive, with a bold typography, perfect for personal or company blogs",
+    "version": "1.0.0",
+    "author": "LebCit",
+    "authorUrl": "https://lebcit.github.io/",
+    "tags": [
+      "midday",
+      "modern",
+      "bold",
+      "simple",
+      "clean",
+      "blog",
+      "responsive"
+    ],
+    "license": "MIT",
+    "features": [
+      "Responsive Design",
+      "SEO Optimized",
+      "Typography Focus",
+      "Two Columns",
+      "Featured Images",
+      "Related Articles"
+    ],
+    "screenshot": "",
+    "lastUpdated": "2025-05-11T00:19:49+03:00",
+    "marketplaceName": "midday",
+    "sourceRepo": "LebCit/aether-themes"
+  },
+  {
+    "title": "Pure",
+    "description": "Clean and minimal theme with responsive design, perfect for blogs and documentation",
+    "version": "1.0.0",
+    "author": "LebCit",
+    "authorUrl": "https://lebcit.github.io/",
+    "tags": [
+      "pure",
+      "simple",
+      "clean",
+      "blog",
+      "documentation"
+    ],
+    "license": "MIT",
+    "features": [
+      "Responsive Design",
+      "SEO Optimized",
+      "Two Columns",
+      "Featured Images",
+      "Dark Mode"
+    ],
+    "screenshot": "",
+    "lastUpdated": "2025-05-11T00:19:49+03:00",
+    "marketplaceName": "pure",
+    "sourceRepo": "LebCit/aether-themes"
+  }
+]
