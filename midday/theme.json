@@ -1,6 +1,6 @@
 {
-    "title": "Midday Theme",
-    "description": "Midday theme for Aether",
+    "title": "Midday",
+    "description": "Clean and responsive, with a bold typography, perfect for personal or company blogs",
     "version": "1.0.0",
     "author": "LebCit",
     "authorUrl": "https://lebcit.github.io/",
@@ -9,14 +9,18 @@
         "modern",
         "bold",
         "simple",
-        "clean"
+        "clean",
+        "blog",
+        "responsive"
     ],
     "license": "MIT",
     "features": [
-        "responsive",
-        "two-columns",
-        "featured-images",
-        "related-posts"
+        "Responsive Design",
+        "SEO Optimized",
+        "Typography Focus",
+        "Two Columns",
+        "Featured Images",
+        "Related Articles"
     ],
     "screenshot": ""
 }

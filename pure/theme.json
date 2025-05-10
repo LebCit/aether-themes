@@ -1,19 +1,23 @@
 {
-    "title": "Pure Theme",
-    "description": "Enhanced version of Pure.css theme for Aether",
+    "title": "Pure",
+    "description": "Clean and minimal theme with responsive design, perfect for blogs and documentation",
     "version": "1.0.0",
     "author": "LebCit",
     "authorUrl": "https://lebcit.github.io/",
     "tags": [
         "pure",
         "simple",
-        "clean"
+        "clean",
+        "blog",
+        "documentation"
     ],
     "license": "MIT",
     "features": [
-        "responsive",
-        "two-columns",
-        "featured-images"
+        "Responsive Design",
+        "SEO Optimized",
+        "Two Columns",
+        "Featured Images",
+        "Dark Mode"
     ],
     "screenshot": ""
 }

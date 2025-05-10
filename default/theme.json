@@ -5,6 +5,7 @@
     "author": "LebCit",
     "authorUrl": "https://lebcit.github.io/",
     "tags": [
+        "default",
         "minimal",
         "responsive",
         "blog"
@@ -12,14 +13,10 @@
     "license": "MIT",
     "features": [
         "Responsive Design",
-        "Dark Mode",
-        "Typography Focus",
-        "Fast Loading",
-        "SEO Optimized"
+        "SEO Optimized",
+        "Article Cards",
+        "Related Articles",
+        "One Column"
     ],
-    "screenshot": "",
-    "marketplaceName": "default",
-    "sourceRepo": "lebcit/aether-themes",
-    "screenshotUrl": "",
-    "lastUpdated": "2024-01-15T10:30:00Z"
+    "screenshot": ""
 }
