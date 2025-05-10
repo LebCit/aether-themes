@@ -1,5 +1,5 @@
 # .github/workflows/generate-marketplace.yml
-# Place this file in your themes repository (e.g., aether-cms/aether-themes)
+# Fixed version with proper permissions and deploy to main branch docs folder
 
 name: Generate Marketplace Data
 
@@ -7,9 +7,14 @@ on:
   push:
     branches: [ main ]
   schedule:
-    # Run every 2 hours to update marketplace data
     - cron: '0 */2 * * *'
-  workflow_dispatch: # Allow manual trigger
+  workflow_dispatch:
+
+# Explicitly grant permissions
+permissions:
+  contents: write
+  pages: write
+  id-token: write
 
 jobs:
   generate:
@@ -17,12 +22,13 @@ jobs:
     
     steps:
     - name: Checkout themes repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
-        fetch-depth: 0 # Fetch all history for accurate commit dates
+        fetch-depth: 0
+        token: ${{ secrets.GITHUB_TOKEN }}
     
     - name: Setup Node.js
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v4
       with:
         node-version: '18'
     
@@ -40,14 +46,15 @@ jobs:
             const themesDir = '.'
             const themes = []
             
-            // Create public directory structure
-            await fs.mkdir('public/screenshots', { recursive: true })
+            // Create docs directory structure (GitHub Pages will serve from /docs)
+            await fs.mkdir('docs/screenshots', { recursive: true })
             
             // Read all directories
             const entries = await fs.readdir(themesDir, { withFileTypes: true })
             
             for (const entry of entries) {
-                if (entry.isDirectory() && !entry.name.startsWith('.') && entry.name !== 'public') {
+                if (entry.isDirectory() && !entry.name.startsWith('.') && 
+                    entry.name !== 'docs' && entry.name !== 'scripts') {
                     try {
                         // Check if theme.json exists
                         const themeJsonPath = path.join(themesDir, entry.name, 'theme.json')
@@ -75,14 +82,14 @@ jobs:
                             try {
                                 await fs.access(screenshotPath)
                                 const publicScreenshotName = `${entry.name}-${theme.screenshot}`
-                                const publicScreenshotPath = path.join('public/screenshots', publicScreenshotName)
+                                const publicScreenshotPath = path.join('docs/screenshots', publicScreenshotName)
                                 
                                 // Copy screenshot
                                 await fs.copyFile(screenshotPath, publicScreenshotPath)
                                 
-                                // Update screenshot URL
-                                const repoName = theme.sourceRepo.split('/')[1]
-                                theme.screenshotUrl = `https://${theme.sourceRepo.split('/')[0]}.github.io/${repoName}/screenshots/${publicScreenshotName}`
+                                // Update screenshot URL - using GitHub Pages URL format
+                                const [owner, repo] = theme.sourceRepo.split('/')
+                                theme.screenshotUrl = `https://${owner}.github.io/${repo}/screenshots/${publicScreenshotName}`
                             } catch (error) {
                                 console.warn(`Screenshot not found for ${entry.name}: ${error.message}`)
                                 theme.screenshotUrl = null
@@ -99,14 +106,14 @@ jobs:
             
             // Generate themes.json
             await fs.writeFile(
-                path.join('public', 'themes.json'),
+                path.join('docs', 'themes.json'),
                 JSON.stringify(themes, null, 2)
             )
             
             // Generate categories.json
             const categories = [...new Set(themes.flatMap(theme => theme.tags || []))]
             await fs.writeFile(
-                path.join('public', 'categories.json'),
+                path.join('docs', 'categories.json'),
                 JSON.stringify(categories.sort(), null, 2)
             )
             
@@ -118,7 +125,7 @@ jobs:
                 repository: process.env.GITHUB_REPOSITORY
             }
             await fs.writeFile(
-                path.join('public', 'metadata.json'),
+                path.join('docs', 'metadata.json'),
                 JSON.stringify(metadata, null, 2)
             )
             
@@ -138,17 +145,24 @@ jobs:
     - name: List generated files
       run: |
         echo "Generated files:"
-        find public -type f -name "*.json" -exec echo "  - {}" \;
+        find docs -type f -name "*.json" -exec echo "  - {}" \;
         echo "Screenshots:"
-        find public/screenshots -type f -exec echo "  - {}" \;
-    
-    - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./public
-        destination_dir: ./
-        keep_files: false
+        find docs/screenshots -type f -exec echo "  - {}" \;
+        
+    - name: Configure Git
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        
+    - name: Commit and push changes
+      run: |
+        git add docs/
+        if git diff --staged --quiet; then
+          echo "No changes to commit"
+        else
+          git commit -m "Update marketplace data [skip ci]"
+          git push origin main
+        fi
         
     - name: Verify deployment
       run: |
