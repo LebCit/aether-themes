@@ -74,7 +74,7 @@ jobs:
                         
                         // Add metadata
                         theme.marketplaceName = entry.name
-                        theme.sourceRepo = process.env.GITHUB_REPOSITORY || 'aether-cms/aether-themes'
+                        theme.sourceRepo = process.env.GITHUB_REPOSITORY || 'lebcit/aether-themes'
                         
                         // Handle screenshot
                         if (theme.screenshot) {
