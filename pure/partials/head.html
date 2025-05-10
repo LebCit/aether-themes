@@ -1,0 +1,28 @@
+<head>
+    <!--Metadata-->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {{#if homeRoute}}
+    <meta name="description" content="{{site.siteDescription}}" />
+    {{#else}}
+    <meta name="description" content="{{metadata.description}}" />
+    {{/if}}
+
+    <!--Site icon-->
+    {{#if site.siteIcon}}
+    <link rel="icon" href="/content/uploads{{site.siteIcon}}" />
+    {{/if}}
+
+    <!--Title-->
+    {{#if homeRoute}}
+    <title>Home | {{ site.siteTitle }}</title>
+    {{#else}}
+    <title>{{ metadata.title }} | {{ site.siteTitle }}</title>
+    {{/if}}
+
+    <!--Stylesheets-->
+    <link rel="stylesheet" href="/content/themes/pure/assets/css/style.css" />
+    {{#if contentRoute}}
+    <link rel="stylesheet" href="/content/themes/pure/assets/vendors/atom-one-dark.min.css" />
+    {{/if}}
+</head>

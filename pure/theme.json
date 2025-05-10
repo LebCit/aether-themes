@@ -1,0 +1,19 @@
+{
+    "title": "Pure Theme",
+    "description": "Enhanced version of Pure.css theme for Aether",
+    "version": "1.0.0",
+    "author": "LebCit",
+    "authorUrl": "https://lebcit.github.io/",
+    "tags": [
+        "pure",
+        "simple",
+        "clean"
+    ],
+    "license": "MIT",
+    "features": [
+        "responsive",
+        "two-columns",
+        "featured-images"
+    ],
+    "screenshot": ""
+}

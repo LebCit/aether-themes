@@ -1,0 +1,15 @@
+<div id="main-nav" aria-label="Main navigation" class="menu-overlay menu-overlay--hidden" tabindex="-1">
+    <a href="#" id="close-button" class="menu-overlay__close" aria-label="Close menu" title="Close menu">&times;</a>
+
+    <div class="menu-overlay__content">
+        {{#each menuItems}}
+        <!---->
+        {{#if depth = 0 && url !== "#"}}
+        <li class="menu-overlay__item {{class}}">
+            <a href="{{url}}" target="{{target}}">{{title}}</a>
+        </li>
+        {{/if}}
+        <!---->
+        {{/each}}
+    </div>
+</div>

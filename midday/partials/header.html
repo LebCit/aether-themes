@@ -1,0 +1,15 @@
+<!-- Start #masthead -->
+{{#if metadata.featuredImage}}
+<header
+    id="masthead"
+    class="site-header unit-1 unit-lg-2-5 bio"
+    style="background-image: url(/content/uploads{{metadata.featuredImage.url}})"
+>
+    <div class="site-header__overlay"></div>
+
+    {{#include("partials/header-content.html")}}
+</header>
+{{#else}}
+<header id="masthead" class="site-header unit-1 unit-lg-2-5 bio">{{#include("partials/header-content.html")}}</header>
+{{/if}}
+<!-- End #masthead -->

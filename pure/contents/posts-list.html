@@ -1,0 +1,74 @@
+{{#set altClass = "alternate" | cycle("blog-card", "blog-card alt")}}
+
+<link rel="stylesheet" href="/content/themes/pure/assets/css/post-preview.css" />
+
+{{#each posts}}
+<div class="{{ altClass | next }}">
+    <div class="meta">
+        <!--Display the featured image if any, otherwise fallback to a default one-->
+        {{#if metadata.featuredImage}}
+        <div class="photo" style="background-image: url(/content/uploads{{metadata.featuredImage.url}})"></div>
+        {{/if}}
+
+        <ul class="details">
+            <li class="date"><span>{{metadata.createdAt | dateFormat('YYYY-MM-DD')}}</span></li>
+
+            {{#if metadata.category}}
+            <li class="category">
+                <ul>
+                    <li>
+                        <a href="/category/{{metadata.category}}"><span>{{metadata.category}}</span></a>
+                    </li>
+                </ul>
+            </li>
+            {{/if}}
+
+            <!---->
+
+            {{#if metadata.tags}}
+            <li class="tags">
+                <ul>
+                    {{#each1 metadata.tags}}
+                    <li>
+                        <a href="/tag/{{this}}"><span>{{this}}</span></a>
+                    </li>
+                    {{/each1}}
+                </ul>
+            </li>
+            {{/if}}
+        </ul>
+    </div>
+
+    <div class="description">
+        <h2>
+            <a href="/post/{{metadata.slug}}" rel="bookmark">{{metadata.title}}</a>
+        </h2>
+
+        <h3>{{metadata.subtitle}}</h3>
+
+        <section>{{ metadata.excerpt || content | truncate(200) }}</section>
+
+        <p class="read-more">
+            <a
+                href="/post/{{metadata.slug}}"
+                aria-label="Read more about {{metadata.title}}"
+                tabindex="0"
+                role="button"
+                class="button-info"
+            >
+                Read the post
+            </a>
+        </p>
+    </div>
+</div>
+
+<hr />
+{{/each}}
+
+<!---->
+
+{{#if pagination}}
+<!-- Include pagination for taxonomies and blog -->
+{{#include("partials/pagination.html")}}
+<!---->
+{{/if}}

@@ -1,0 +1,43 @@
+{{#if metadata.featuredImage}}
+<style>
+    .page-header {
+        background-image: url("/content/uploads{{metadata.featuredImage.url}}");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+    .page-header .overlay {
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+    .page-header .overlay h1,
+    .page-header .overlay h2 {
+        color: #fff;
+    }
+    @media (min-width: 48em) {
+        .page-header .overlay {
+            display: inline-block;
+            width: 50%;
+        }
+    }
+    /* === Dark Mode Page Header Overlay === */
+    body.dark-mode .page-header .overlay {
+        background-color: rgba(255, 255, 255, 0.7); /* lighter overlay for dark bg */
+    }
+
+    body.dark-mode .page-header .overlay h1,
+    body.dark-mode .page-header .overlay h2 {
+        color: #333;
+    }
+</style>
+{{/if}}
+
+<!---->
+
+<div class="{{metadata.featuredImage ? `header page-header` : `header`}}">
+    <div class="overlay">
+        <h1>{{homeRoute ? site.siteTitle : notFoundRoute ? "Page Not Found" : metadata.title}}</h1>
+        {{#if site.siteDescription || metadata.subtitle || notFoundRoute}}
+        <h2>{{homeRoute ? site.siteDescription : notFoundRoute ? "Nothing to land on here !" : metadata.subtitle}}</h2>
+        {{/if}}
+    </div>
+</div>

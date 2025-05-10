@@ -1,0 +1,49 @@
+<button id="menuToggle" class="menu-toggle">
+    <span></span>
+</button>
+
+<nav id="menu" class="menu">
+    <div class="menu-heading">{{site.siteTitle}}</div>
+
+    <ul class="menu-list">
+        {{#each menuItems}}
+        <!---->
+        {{#if depth = 0}}
+        <li class="menu-item {{hasChildren ? `has-submenu` : ``}} {{class}}">
+            <a href="{{url}}" target="{{target}}">
+                <i></i>
+                {{title}}
+            </a>
+
+            {{#if hasChildren}}
+            <!---->
+            {{#set parentId = id}}
+            <ul class="submenu menu-list" aria-hidden="true">
+                {{#each1 menuItems}}
+                <!---->
+                {{#if depth = 1 && parent && parent = parentId}}
+                <li class="menu-item">
+                    <a href="{{url}}" target="{{target}}">
+                        <i></i>
+                        {{title}}
+                    </a>
+                </li>
+                {{/if}}
+                <!---->
+                {{/each1}}
+            </ul>
+            {{/if}}
+        </li>
+        {{/if}}
+        <!---->
+        {{/each}}
+    </ul>
+
+    <div class="theme-switch">
+        <span id="themeLabel">Dark Mode</span>
+        <label class="switch" for="themeSwitch">
+            <input type="checkbox" id="themeSwitch" aria-labelledby="themeLabel" />
+            <span class="slider"></span>
+        </label>
+    </div>
+</nav>

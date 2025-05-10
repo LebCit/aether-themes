@@ -1,0 +1,52 @@
+<header class="post-header">
+    <h1 class="post-title">{{metadata.title}}</h1>
+    {{#if fileType === "post"}}
+    <p class="post-meta">
+        <span>Posted on</span>
+        <span class="post-posted-on">
+            <time class="post-date" datetime="{{metadata.createdAt}}">
+                {{metadata.createdAt | dateFormat('YYYY-MM-DD')}}
+            </time>
+        </span>
+
+        <br />
+        {{#if metadata.category}}
+        <!-- Start Post category -->
+        <span>Category</span>
+
+        <span class="post-category">
+            <a href="/category/{{metadata.category}}">{{metadata.category}}</a>
+        </span>
+        <!-- End Post category -->
+        {{/if}}
+
+        <br />
+        {{#if metadata.tags}}
+        <!-- Start Post tag(s) -->
+        <span>Tagged</span>
+        {{#each1 metadata.tags}}
+        <span class="post-tag">
+            <a href="/tag/{{this}}">{{this}}</a>
+        </span>
+        {{/each1}}
+        <!-- End Post tag(s) -->
+        {{/if}}
+    </p>
+    {{/if}}
+</header>
+
+<div class="post-content">
+    {{#if metadata.excerpt || metadata.description}}
+    <p>
+        <em>{{metadata.excerpt ? metadata.excerpt : metadata.description}}</em>
+    </p>
+    {{/if}}
+
+    <!--Content-->
+    {{content}}
+</div>
+
+{{#include("partials/pagination.html")}}
+
+<!---->
+{{#if metadata.relatedPostsData}} {{#include("partials/related-posts.html")}} {{/if}}

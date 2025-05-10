@@ -1,0 +1,124 @@
+/* Base nav style */
+nav#pagination {
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    align-items: center; /* Center children horizontally */
+    justify-content: center; /* Default style */
+    margin-top: 50px;
+}
+
+/* Page counter */
+.page-info {
+    margin-top: 15px;
+    padding: 6px 12px;
+    background-color: #333;
+    color: white;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+/* Pages pagination */
+.pagination {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.pagination:has(.post-link) {
+    flex-direction: column-reverse;
+}
+
+.pagination li {
+    margin: 10px;
+}
+
+.default {
+    border-color: #e7e7e7;
+    color: black;
+    text-decoration: none;
+}
+
+.default:hover,
+.default:focus {
+    background: #e7e7e7;
+    text-decoration: underline;
+}
+
+/* Base style */
+.post-link {
+    display: flex;
+    line-height: initial;
+    justify-content: center;
+    background-color: #1f3a5f; /* deep navy blue */
+    color: #ffffff;
+    padding: 0.5rem 1rem;
+    border: 2px solid #2d4f77; /* slightly lighter for contrast */
+    border-radius: 6px;
+    font-size: 1em;
+    text-decoration: none;
+    font-family: "Open Sans", sans-serif;
+    transition: all 0.3s ease; /* smooth transition */
+}
+
+/* Hover, focus, active */
+.post-link:hover,
+.post-link:focus,
+.post-link:active {
+    background-color: #e6f0ff; /* light blue tint */
+    color: #1f3a5f; /* main blue for text */
+    border-color: #1f3a5f; /* main blue for border */
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.archive-link {
+    text-align: center;
+}
+
+.archive-link a {
+    text-decoration: none;
+}
+
+.archive-link a:hover,
+.archive-link a:focus {
+    text-decoration: underline;
+}
+
+@media (max-width: 30em) {
+    .prev span:first-of-type {
+        display: none;
+    }
+    .prev:after {
+        content: "Older";
+    }
+    .next span:first-of-type {
+        display: none;
+    }
+    .next:after {
+        content: "Newer";
+    }
+}
+
+/* Dark mode */
+body.dark-mode .pagination img {
+    filter: invert(100%);
+}
+
+body.dark-mode .post-link {
+    background-color: #2d4f77; /* softer navy blue */
+    color: #ffffff;
+    border: 2px solid #1f3a5f; /* darker blue border */
+    transition: all 0.3s ease;
+}
+
+body.dark-mode .post-link:hover,
+body.dark-mode .post-link:focus,
+body.dark-mode .post-link:active {
+    background-color: #142235; /* deep blue-black */
+    color: #42b8dd; /* accent cyan/blue */
+    border-color: #42b8dd;
+    text-decoration: underline;
+    cursor: pointer;
+}

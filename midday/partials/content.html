@@ -1,0 +1,27 @@
+<main
+    class="{{contentRoute || notFoundRoute ? `article-view` : `list-view`}}"
+>
+    {{#if homeRoute || taxonomyRoute || (isCustomPage && metadata.slug === "blog")}}
+    <!--Routes' data are always accessible even on custom pages.-->
+
+    <!---->
+    {{#include("contents/posts-list.html")}}
+    <!---->
+
+    {{#elseif hasTaxonomyData}}
+    <!--This is a custom page (categories.html or tags.html) to list available taxonomies.-->
+    {{#include("contents/taxonomies-list.html")}}
+    <!---->
+
+    {{#elseif contentRoute}}
+    <!--The page to display the Markdown content of posts and pages.-->
+    {{#include("contents/markdown-content.html")}}
+    <!---->
+
+    {{#else}}
+    <!--No content was found for the requested route/page-->
+    {{#include("contents/404.html")}}
+    <!---->
+
+    {{/if}}
+</main>

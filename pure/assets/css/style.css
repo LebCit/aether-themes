@@ -1,0 +1,512 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue",
+        sans-serif;
+    color: #333;
+    line-height: 1.6;
+    background-color: #f9f9f9;
+}
+
+a {
+    text-decoration: none;
+    color: #135d8e;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #0e578f;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Layout */
+.layout {
+    position: relative;
+    left: 0;
+    padding-left: 0;
+    transition: all 0.3s ease;
+
+    /* Push footer to bottom */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* fallback height */
+    min-height: 100svh; /* new small viewport height for modern browsers */
+}
+
+/* Header */
+.header {
+    padding: 1.5em 2em;
+    border-bottom: 1px solid #eee;
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    text-align: center;
+}
+
+.header h1 {
+    margin: 0.2em 0;
+    font-size: 3em;
+    /* font-weight: 300; */
+    /* color: #222; */
+}
+
+.header h2 {
+    /* font-weight: 300; */
+    margin: 0;
+    /* color: #666; */
+}
+
+/* Content */
+.content {
+    padding: 2em 3em;
+    max-width: 800px;
+    width: 100%;
+    margin: 2em auto;
+    background-color: #fff;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.content h2 {
+    color: #222;
+    margin: 1em 0 0.5em;
+    font-weight: 500;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 0.3em;
+}
+
+.content p {
+    margin-bottom: 1em;
+}
+
+.content ul {
+    margin-left: 2em;
+    margin-bottom: 1em;
+}
+
+.content .button,
+.content .button-default,
+.content .button-info {
+    border: 2px solid #000;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #000;
+    padding: 14px 28px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.content .button-default {
+    border-color: #e7e7e7;
+    color: black;
+    text-decoration: none;
+}
+
+.content .button-default:hover,
+.content .button-default:focus {
+    background: #e7e7e7;
+    text-decoration: underline;
+}
+
+.content .button-info {
+    border-color: #0078d5;
+    color: #0064ff;
+}
+
+.content .button-info:hover {
+    background: #0078d5;
+    color: white;
+}
+
+/* Side Menu */
+.menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 1000;
+    width: 280px;
+    background-color: #1f3a5f;
+    color: #fff;
+    overflow-y: auto;
+    transform: translateX(-280px);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.15);
+}
+
+.menu.active {
+    transform: translateX(0);
+}
+
+.menu-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 600;
+    font-size: 1.2em;
+    padding: 1.2em 1em;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.2);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.menu-heading small {
+    font-size: 0.7em;
+    opacity: 0.7;
+    text-transform: none;
+    font-weight: 400;
+}
+
+.menu-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu-item {
+    display: block;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.menu-item a {
+    display: flex;
+    align-items: center;
+    padding: 0.9em 1em;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 400;
+    transition: all 0.2s ease;
+}
+
+.menu-item a:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    color: #fff;
+    text-decoration: none;
+}
+
+.menu-item a.active {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border-left: 4px solid #42b8dd;
+}
+
+/* Icons for menu items */
+.menu-item a i {
+    margin-right: 10px;
+    width: 20px;
+    text-align: center;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+}
+
+.menu-item a:hover i {
+    opacity: 1;
+}
+
+/* Submenu styles */
+.has-submenu {
+    position: relative;
+}
+
+.has-submenu > a {
+    position: relative;
+}
+
+.has-submenu > a:after {
+    content: "›";
+    position: absolute;
+    right: 15px;
+    font-size: 1.2em;
+    transition: transform 0.3s ease;
+}
+
+.has-submenu.open > a:after {
+    transform: rotate(90deg);
+}
+
+.submenu {
+    max-height: 0;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.15);
+    transition: max-height 0.3s ease;
+}
+
+.submenu a {
+    padding-left: 3em;
+    font-size: 0.95em;
+}
+
+.has-submenu.open .submenu {
+    max-height: 1000px;
+}
+
+/* Menu toggle button */
+.menu-toggle {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    z-index: 1200; /* Higher than menu */
+    background-color: rgba(31, 58, 95, 0.9);
+    border-radius: 4px;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border: none;
+    outline: none;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.menu-toggle.active {
+    left: 295px;
+}
+
+.menu-toggle span,
+.menu-toggle span:before,
+.menu-toggle span:after {
+    position: absolute;
+    display: block;
+    width: 22px;
+    height: 2px;
+    background-color: #fff;
+    border-radius: 1px;
+    transition: all 0.3s ease;
+}
+
+.menu-toggle span {
+    top: 19px;
+    left: 9px;
+}
+
+.menu-toggle span:before {
+    content: "";
+    top: -7px;
+}
+
+.menu-toggle span:after {
+    content: "";
+    top: 7px;
+}
+
+.menu-toggle.active span {
+    background-color: transparent;
+}
+
+.menu-toggle.active span:before {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menu-toggle.active span:after {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Theme switcher */
+.theme-switch {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: rgba(0, 0, 0, 0.15);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.theme-switch span {
+    font-size: 0.9em;
+    font-weight: 300;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 24px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #42b8dd;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+/* Footer */
+.footer {
+    background-color: #fff;
+    padding: 1.5em 2em;
+    text-align: center;
+    font-size: 0.9em;
+    color: #403b3b;
+    margin-top: auto; /* Push footer to bottom */
+    border-top: 1px solid #eee;
+    /* margin-top: 2em; */
+}
+
+/* Responsive styles */
+@media (min-width: 768px) {
+    .layout {
+        padding-left: 280px;
+    }
+
+    .menu {
+        transform: translateX(0);
+    }
+
+    .menu-toggle {
+        display: none;
+    }
+}
+
+/* Dark mode */
+body.dark-mode {
+    background-color: #1a1a1a;
+    color: #f5f5f5;
+}
+
+body.dark-mode .header,
+body.dark-mode .content,
+body.dark-mode .footer {
+    background-color: #252525;
+    border-color: #333;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .header h1,
+body.dark-mode .content h2 {
+    color: #e1e1e1;
+}
+
+/* body.dark-mode .header h2,
+body.dark-mode .footer {
+    color: #999;
+} */
+
+body.dark-mode .content p {
+    color: #ccc;
+}
+
+body.dark-mode .content h2 {
+    border-bottom-color: #333;
+}
+
+body.dark-mode .menu {
+    background-color: #0a1020;
+}
+
+body.dark-mode a {
+    color: #78b5ee;
+}
+
+body.dark-mode a:hover {
+    color: #7fb9f5;
+}
+
+/* === Dark Mode Buttons === */
+body.dark-mode .content .button,
+body.dark-mode .content .button-info {
+    background-color: #1e1e1e;
+    color: #f0f0f0;
+    border: 2px solid #f0f0f0;
+}
+
+body.dark-mode .content .button-info {
+    border-color: #3399ff;
+    color: #3399ff;
+}
+
+body.dark-mode .content .button-default {
+    color: black;
+}
+
+body.dark-mode .footer {
+    color: #ead7d7;
+}
+
+/* Animation for menu items */
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.menu.active .menu-item {
+    animation: fadeInRight 0.3s ease forwards;
+    opacity: 0;
+}
+
+.menu.active .menu-item:nth-child(1) {
+    animation-delay: 0.05s;
+}
+.menu.active .menu-item:nth-child(2) {
+    animation-delay: 0.1s;
+}
+.menu.active .menu-item:nth-child(3) {
+    animation-delay: 0.15s;
+}
+.menu.active .menu-item:nth-child(4) {
+    animation-delay: 0.2s;
+}
+.menu.active .menu-item:nth-child(5) {
+    animation-delay: 0.25s;
+}
+.menu.active .menu-item:nth-child(6) {
+    animation-delay: 0.3s;
+}
+.menu.active .menu-item:nth-child(7) {
+    animation-delay: 0.35s;
+}
+.menu.active .menu-item:nth-child(8) {
+    animation-delay: 0.4s;
+}

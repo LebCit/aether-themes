@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    {{#include("partials/head.html")}}
+
+    <body>
+        <!--Start page-->
+        <div id="page" class="site grid">
+            <a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+
+            <!--Start menu-->
+            {{#include("partials/menu.html")}}
+            <!--End menu-->
+
+            <!--Start masthead-->
+            {{#include("partials/header.html")}}
+            <!--End masthead-->
+
+            <!--Start content-->
+            <div id="content" class="site-content unit-1 unit-lg-3-5">
+                {{#include("partials/content.html")}}
+            </div>
+            <!--End content-->
+
+            <!--Start footer-->
+            {{#include("partials/footer.html")}}
+            <!--End footer-->
+        </div>
+        <!--End page-->
+
+        {{#if contentRoute}}
+        <script src="/content/themes/midday/assets/vendors/highlight.min.js" onload="hljs.highlightAll()"></script>
+        {{/if}}
+
+        <script type="module" src="/content/themes/midday/assets/js/main.js"></script>
+
+        {{aetherBar}}
+    </body>
+</html>

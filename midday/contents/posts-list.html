@@ -1,0 +1,78 @@
+{{#if taxonomyRoute || (isCustomPage && metadata.slug === "blog")}}
+<!-- Add page metadata for taxonomy and blog-->
+<h1>{{metadata.title}}</h1>
+<h2>{{metadata.subtitle}}</h2>
+
+{{#elseif homeRoute}}
+<!-- Add page heading for homepage -->
+<h1>Recent Posts</h1>
+{{/if}}
+
+<!-- Start list of posts -->
+{{#each posts}}
+<article class="post-item">
+    <header class="post-header">
+        <h2 class="post-title">
+            <a href="/post/{{metadata.slug}}" class="postList-link" rel="bookmark">{{metadata.title}}</a>
+        </h2>
+        <p class="post-meta">
+            <span>Posted on</span>
+            <span class="post-posted-on">
+                <time class="post-date" datetime="{{metadata.createdAt}}">
+                    {{metadata.createdAt | dateFormat('YYYY-MM-DD')}}
+                </time>
+            </span>
+
+            {{#if metadata}}
+            <!-- Start taxonomies -->
+            {{#if metadata.category}}
+            <br />
+            <!-- Start Post category -->
+            <span>Category</span>
+            <span class="post-category">
+                <a href="/category/{{metadata.category}}">{{metadata.category}}</a>
+            </span>
+            <!-- End Post category -->
+            {{/if}} {{#if metadata.tags}}
+            <br />
+            <!-- Start Post tag(s) -->
+            <span>Tagged</span>
+            {{#each1 metadata.tags}}
+            <span class="post-tag">
+                <a href="/tag/{{this}}">{{this}}</a>
+            </span>
+            {{/each1}}
+            <!-- End Post tag(s) -->
+            {{/if}}
+            <!-- End taxonomies -->
+            {{/if}}
+        </p>
+    </header>
+
+    {{#if metadata.excerpt || metadata.description || metadata.subtitle}}
+    <div class="post-excerpt">
+        <p>{{metadata.excerpt ? metadata.excerpt : metadata.description ? metadata.description : metadata.subtitle}}</p>
+    </div>
+    {{/if}}
+
+    <p>
+        <a
+            href="/post/{{metadata.slug}}"
+            class="read-more-link"
+            aria-label="Read More about {{metadata.title}}"
+            tabindex="0"
+            role="button"
+            target="_self"
+        >
+            Read The Post
+        </a>
+    </p>
+</article>
+{{/each}}
+<!-- End list of posts -->
+
+{{#if pagination}}
+<!-- Include pagination for taxonomies and blog -->
+{{#include("partials/pagination.html")}}
+<!---->
+{{/if}}

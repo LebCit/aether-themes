@@ -1,0 +1,22 @@
+{
+    "title": "Midday Theme",
+    "description": "Midday theme for Aether",
+    "version": "1.0.0",
+    "author": "LebCit",
+    "authorUrl": "https://lebcit.github.io/",
+    "tags": [
+        "midday",
+        "modern",
+        "bold",
+        "simple",
+        "clean"
+    ],
+    "license": "MIT",
+    "features": [
+        "responsive",
+        "two-columns",
+        "featured-images",
+        "related-posts"
+    ],
+    "screenshot": ""
+}

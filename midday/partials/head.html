@@ -1,0 +1,19 @@
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="{{homeRoute ? site.siteDescription : metadata.description}}" />
+
+    <!--Site icon-->
+    {{#if site.siteIcon}}
+    <link rel="icon" href="/content/uploads{{site.siteIcon}}" />
+    {{/if}}
+
+    <!--Title-->
+    <title>{{homeRoute ? "Home" : metadata.title}} | {{ site.siteTitle }}</title>
+
+    <!--Stylesheets-->
+    <link rel="stylesheet" href="/content/themes/midday/assets/css/style.css" />
+    {{#if contentRoute}}
+    <link rel="stylesheet" href="/content/themes/midday/assets/vendors/atom-one-dark.min.css" />
+    {{/if}}
+</head>

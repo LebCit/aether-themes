@@ -1,0 +1,12 @@
+<h1>All {{taxonomiesType | capitalize}}</h1>
+
+<ul class="{{taxonomiesType}}-list">
+    {{#each taxonomies}}
+    <li class="{{taxonomyType}}-list-item">
+        <a href="/{{taxonomyType}}/{{slug}}" class="{{taxonomyType}}-link">{{name}}</a>
+        <span class="post-count">({{count}} posts)</span>
+        <!--We also have access in each taxonomy to each post (id, title, slug and category) within the taxonomy.-->
+        <!--#each posts...-->
+    </li>
+    {{/each}}
+</ul>

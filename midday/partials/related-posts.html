@@ -1,0 +1,19 @@
+<div class="related-posts">
+    <h3>You Might Also Like</h3>
+    <div>
+        {{#each metadata.relatedPostsData}}
+        <section>
+            <a href="/post/{{slug}}">
+                <img
+                    class="img-responsive"
+                    src="/content/uploads{{featuredImage.url}}"
+                    alt="Featured image for the post: {{title}}"
+                />
+            </a>
+            <h4>
+                <a href="/post/{{slug}}">{{title}}</a>
+            </h4>
+        </section>
+        {{/each}}
+    </div>
+</div>

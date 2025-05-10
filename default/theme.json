@@ -1,0 +1,19 @@
+{
+    "title": "Default Theme",
+    "description": "A simple, clean default theme for Aether",
+    "version": "1.0.0",
+    "author": "LebCit",
+    "authorUrl": "https://lebcit.github.io/",
+    "tags": [
+        "default",
+        "simple",
+        "clean"
+    ],
+    "license": "MIT",
+    "features": [
+        "responsive",
+        "single-column",
+        "related-posts"
+    ],
+    "screenshot": ""
+}

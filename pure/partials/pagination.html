@@ -1,0 +1,75 @@
+<link rel="stylesheet" href="/content/themes/pure/assets/css/pagination.css" />
+
+<!-- Pagination navigation -->
+<nav aria-label="pagination" id="pagination">
+    <ul class="pagination">
+        {{#if pagination.nextPage}}
+        <!-- Older Posts (only if there's a next page) -->
+        <li>
+            <a href="{{pagination.urls.last}}" title="Last page" aria-label="Go to the last page">
+                <span aria-hidden="true">
+                    <img src="/content/themes/pure/assets/images/chevrons-left.svg" alt="Last page" />
+                </span>
+                <span class="hidden">Last page</span>
+            </a>
+        </li>
+        <li>
+            <a class="button-default prev" href="{{pagination.urls.next}}" aria-label="Older Posts">
+                <span aria-hidden="true">Older Posts</span>
+                <span class="hidden">Go to older posts</span>
+            </a>
+        </li>
+        {{/if}}
+
+        <!-- Dynamic Markup Separator -->
+
+        {{#if pagination.prevPage}}
+        <!-- Newer Posts (only if there's a previous page) -->
+        <li>
+            <a class="button-default next" href="{{pagination.urls.prev}}" aria-label="Newer Posts">
+                <span aria-hidden="true">Newer Posts</span>
+                <span class="hidden">Go to newer posts</span>
+            </a>
+        </li>
+        <li>
+            <a href="{{pagination.urls.first}}" title="First page" aria-label="Go to the first page">
+                <span aria-hidden="true">
+                    <img src="/content/themes/pure/assets/images/chevrons-right.svg" alt="Last page" />
+                </span>
+                <span class="hidden">First page</span>
+            </a>
+        </li>
+        {{/if}}
+
+        <!-- Dynamic Markup Separator -->
+
+        {{#if prevPost}}
+        <!-- Previous Post Link (only if there's a previous post) -->
+        <li>
+            <a class="post-link prev" role="button" href="/post/{{prevPost.slug}}" aria-label="Go to the previous post">
+                <span aria-hidden="true">Older: {{prevPost.title}}</span>
+                <span class="hidden">Go to the previous post</span>
+            </a>
+        </li>
+        {{/if}}
+
+        <!--Dynamic Markup Separator-->
+
+        {{#if nextPost}}
+        <!-- Next Post Link (only if there's a next post) -->
+        <li>
+            <a class="post-link next" role="button" href="/post/{{nextPost.slug}}" aria-label="Go to the next post">
+                <span aria-hidden="true">Newer: {{nextPost.title}}</span>
+                <span class="hidden">Go to the next post</span>
+            </a>
+        </li>
+        {{/if}}
+    </ul>
+
+    {{#if pagination.totalPages > 1}}
+    <!-- Page information counter -->
+    <div class="page-info">
+        <span>Page {{pagination.currentPage}} of {{pagination.totalPages}}</span>
+    </div>
+    {{/if}}
+</nav>

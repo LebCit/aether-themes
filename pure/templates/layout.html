@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    {{#include("partials/head.html")}}
+    <body>
+        <div id="layout" class="layout">
+            {{#include("partials/menu.html")}}
+
+            <!---->
+            {{#include("partials/header.html")}}
+
+            <!---->
+            {{#include("partials/content.html")}}
+
+            <!---->
+            {{#include("partials/footer.html")}}
+        </div>
+
+        <!---->
+        {{#if contentRoute}}
+        <script src="/content/themes/pure/assets/vendors/highlight.min.js" onload="hljs.highlightAll()"></script>
+        {{/if}}
+
+        <script src="/content/themes/pure/assets/js/main.js"></script>
+
+        {{aetherBar}}
+    </body>
+</html>
