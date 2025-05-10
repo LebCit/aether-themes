@@ -1,0 +1,156 @@
+# .github/workflows/generate-marketplace.yml
+# Place this file in your themes repository (e.g., aether-cms/aether-themes)
+
+name: Generate Marketplace Data
+
+on:
+  push:
+    branches: [ main ]
+  schedule:
+    # Run every 2 hours to update marketplace data
+    - cron: '0 */2 * * *'
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout themes repository
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 0 # Fetch all history for accurate commit dates
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+    
+    - name: Create scripts directory
+      run: mkdir -p scripts
+    
+    - name: Create marketplace generator script
+      run: |
+        cat > scripts/generate-marketplace.js << 'EOF'
+        const fs = require('fs').promises
+        const path = require('path')
+        const { execSync } = require('child_process')
+
+        async function generateMarketplace() {
+            const themesDir = '.'
+            const themes = []
+            
+            // Create public directory structure
+            await fs.mkdir('public/screenshots', { recursive: true })
+            
+            // Read all directories
+            const entries = await fs.readdir(themesDir, { withFileTypes: true })
+            
+            for (const entry of entries) {
+                if (entry.isDirectory() && !entry.name.startsWith('.') && entry.name !== 'public') {
+                    try {
+                        // Check if theme.json exists
+                        const themeJsonPath = path.join(themesDir, entry.name, 'theme.json')
+                        await fs.access(themeJsonPath)
+                        
+                        // Read theme.json
+                        const themeData = await fs.readFile(themeJsonPath, 'utf8')
+                        const theme = JSON.parse(themeData)
+                        
+                        // Get last commit date for this theme
+                        try {
+                            const lastCommit = execSync(`git log -1 --format=%cI -- ${entry.name}`, { encoding: 'utf8' }).trim()
+                            theme.lastUpdated = lastCommit || new Date().toISOString()
+                        } catch (error) {
+                            theme.lastUpdated = new Date().toISOString()
+                        }
+                        
+                        // Add metadata
+                        theme.marketplaceName = entry.name
+                        theme.sourceRepo = process.env.GITHUB_REPOSITORY || 'aether-cms/aether-themes'
+                        
+                        // Handle screenshot
+                        if (theme.screenshot) {
+                            const screenshotPath = path.join(themesDir, entry.name, theme.screenshot)
+                            try {
+                                await fs.access(screenshotPath)
+                                const publicScreenshotName = `${entry.name}-${theme.screenshot}`
+                                const publicScreenshotPath = path.join('public/screenshots', publicScreenshotName)
+                                
+                                // Copy screenshot
+                                await fs.copyFile(screenshotPath, publicScreenshotPath)
+                                
+                                // Update screenshot URL
+                                const repoName = theme.sourceRepo.split('/')[1]
+                                theme.screenshotUrl = `https://${theme.sourceRepo.split('/')[0]}.github.io/${repoName}/screenshots/${publicScreenshotName}`
+                            } catch (error) {
+                                console.warn(`Screenshot not found for ${entry.name}: ${error.message}`)
+                                theme.screenshotUrl = null
+                            }
+                        }
+                        
+                        themes.push(theme)
+                        console.log(`Processed theme: ${theme.title}`)
+                    } catch (error) {
+                        console.error(`Error processing theme ${entry.name}:`, error.message)
+                    }
+                }
+            }
+            
+            // Generate themes.json
+            await fs.writeFile(
+                path.join('public', 'themes.json'),
+                JSON.stringify(themes, null, 2)
+            )
+            
+            // Generate categories.json
+            const categories = [...new Set(themes.flatMap(theme => theme.tags || []))]
+            await fs.writeFile(
+                path.join('public', 'categories.json'),
+                JSON.stringify(categories.sort(), null, 2)
+            )
+            
+            // Generate metadata.json with generation info
+            const metadata = {
+                generatedAt: new Date().toISOString(),
+                totalThemes: themes.length,
+                categories: categories.length,
+                repository: process.env.GITHUB_REPOSITORY
+            }
+            await fs.writeFile(
+                path.join('public', 'metadata.json'),
+                JSON.stringify(metadata, null, 2)
+            )
+            
+            console.log(`Successfully generated marketplace data for ${themes.length} themes`)
+            console.log(`Categories: ${categories.join(', ')}`)
+        }
+
+        generateMarketplace().catch(error => {
+            console.error('Generation failed:', error)
+            process.exit(1)
+        })
+        EOF
+    
+    - name: Generate marketplace data
+      run: node scripts/generate-marketplace.js
+    
+    - name: List generated files
+      run: |
+        echo "Generated files:"
+        find public -type f -name "*.json" -exec echo "  - {}" \;
+        echo "Screenshots:"
+        find public/screenshots -type f -exec echo "  - {}" \;
+    
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./public
+        destination_dir: ./
+        keep_files: false
+        
+    - name: Verify deployment
+      run: |
+        echo "Marketplace data will be available at:"
+        echo "https://$(echo ${{ github.repository }} | tr '[:upper:]' '[:lower:]' | sed 's/\//.github.io\//')/themes.json"
