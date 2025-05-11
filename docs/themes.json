@@ -27,7 +27,7 @@
   {
     "title": "Midday",
     "description": "Clean and responsive, with a bold typography, perfect for personal or company blogs",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "author": "LebCit",
     "authorUrl": "https://lebcit.github.io/",
     "tags": [
@@ -50,7 +50,7 @@
       "Custom Pages"
     ],
     "screenshot": "",
-    "lastUpdated": "2025-05-11T14:00:31+03:00",
+    "lastUpdated": "2025-05-11T14:05:42+03:00",
     "marketplaceName": "midday",
     "sourceRepo": "LebCit/aether-themes"
   },
