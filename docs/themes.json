@@ -2,7 +2,7 @@
   {
     "title": "Default",
     "description": "Clean and minimal default theme with responsive design",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "author": "LebCit",
     "authorUrl": "https://lebcit.github.io/",
     "tags": [
@@ -19,10 +19,11 @@
       "Related Articles",
       "One Column"
     ],
-    "screenshot": "",
-    "lastUpdated": "2025-05-11T00:19:49+03:00",
+    "screenshot": "screenshot.avif",
+    "lastUpdated": "2025-05-25T17:29:07+03:00",
     "marketplaceName": "default",
-    "sourceRepo": "LebCit/aether-themes"
+    "sourceRepo": "LebCit/aether-themes",
+    "screenshotUrl": "https://LebCit.github.io/aether-themes/screenshots/default-screenshot.avif"
   },
   {
     "title": "Midday",
