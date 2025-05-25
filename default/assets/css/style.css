@@ -378,6 +378,10 @@ tbody tr:nth-child(even) {
     margin-bottom: 15px;
 }
 
+.post-excerpt div {
+    margin-top: 15px;
+}
+
 .read-more {
     display: inline-block;
     font-weight: 500;

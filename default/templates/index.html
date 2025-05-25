@@ -15,7 +15,14 @@
                     <span class="post-date">{{ metadata.createdAt | dateFormat('YYYY-MM-DD') }}</span>
                     <span class="post-author">By {{ metadata.author }}</span>
                 </div>
-                <div class="post-excerpt">{{ metadata.excerpt || (content | truncate(50)) }}</div>
+                <div class="post-excerpt">
+                    {{#if metadata.subtitle}}
+                    <h4>{{metadata.subtitle}}</h4>
+                    {{#else}}
+                    <div>{{metadata.excerpt || (content | truncate(50))}}</div>
+
+                    {{/if}}
+                </div>
                 <a href="/post/{{ metadata.slug }}" class="read-more">Read More</a>
             </article>
             {{/each}}
