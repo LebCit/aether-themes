@@ -57,7 +57,7 @@
   {
     "title": "Pure",
     "description": "Clean and minimal theme with responsive design, perfect for blogs and documentation",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "author": "LebCit",
     "authorUrl": "https://lebcit.github.io/",
     "tags": [
@@ -73,10 +73,19 @@
       "SEO Optimized",
       "Two Columns",
       "Featured Images",
-      "Dark Mode"
+      "Dark Mode",
+      "Custom Pages"
     ],
     "screenshot": "",
-    "lastUpdated": "2025-05-11T00:19:49+03:00",
+    "changelog": {
+      "1.0.1": [
+        "Added: Custom Pages to features"
+      ],
+      "1.0.0": [
+        "Initial release"
+      ]
+    },
+    "lastUpdated": "2025-05-11T21:03:07+03:00",
     "marketplaceName": "pure",
     "sourceRepo": "LebCit/aether-themes"
   }
