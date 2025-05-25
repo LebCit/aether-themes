@@ -18,5 +18,15 @@
         "Related Articles",
         "One Column"
     ],
-    "screenshot": "screenshot.avif"
+    "screenshot": "screenshot.avif",
+    "changelog": {
+        "1.1.0": [
+            "Added: Blog Custom Page",
+            "Added: Subtitle to post excerpt",
+            "Added: Margin bottom to posts grid"
+        ],
+        "1.0.0": [
+            "Initial release"
+        ]
+    }
 }
