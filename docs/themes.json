@@ -2,7 +2,7 @@
   {
     "title": "Default",
     "description": "Clean and minimal default theme with responsive design",
-    "version": "1.1.1",
+    "version": "1.1.2",
     "author": "LebCit",
     "authorUrl": "https://lebcit.github.io/",
     "tags": [
@@ -21,6 +21,11 @@
     ],
     "screenshot": "screenshot.avif",
     "changelog": {
+      "1.1.2": [
+        "Fixed: Correct the access to pageType via metadata",
+        "Added: Missing custom footerCode in footer",
+        "Fixed: Templates names in comments"
+      ],
       "1.1.1": [
         "Changed: License updated from MIT to GPL-3.0-or-later",
         "Fixed: Remove remained custom footer code in `layout.html`"
@@ -34,7 +39,7 @@
         "Initial release"
       ]
     },
-    "lastUpdated": "2025-06-01T11:01:22+03:00",
+    "lastUpdated": "2025-06-02T00:10:47+03:00",
     "marketplaceName": "default",
     "sourceRepo": "LebCit/aether-themes",
     "screenshotUrl": "https://LebCit.github.io/aether-themes/screenshots/default-screenshot.avif"
