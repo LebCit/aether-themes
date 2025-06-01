@@ -1,7 +1,7 @@
 {
     "title": "Pure",
     "description": "Clean and minimal theme with responsive design, perfect for blogs and documentation",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "author": "LebCit",
     "authorUrl": "https://lebcit.github.io/",
     "tags": [
@@ -11,7 +11,7 @@
         "blog",
         "documentation"
     ],
-    "license": "MIT",
+    "license": "GPL-3.0-or-later",
     "features": [
         "Responsive Design",
         "SEO Optimized",
@@ -20,8 +20,12 @@
         "Dark Mode",
         "Custom Pages"
     ],
-    "screenshot": "",
+    "screenshot": "screenshot.avif",
     "changelog": {
+        "1.0.2": [
+            "Changed: License updated from MIT to GPL-3.0-or-later",
+            "Added: Theme Screenshot"
+        ],
         "1.0.1": [
             "Added: Custom Pages to features"
         ],
