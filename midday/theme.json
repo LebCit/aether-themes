@@ -1,7 +1,7 @@
 {
     "title": "Midday",
     "description": "Clean and responsive, with a bold typography, perfect for personal or company blogs",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "author": "LebCit",
     "authorUrl": "https://lebcit.github.io/",
     "tags": [
@@ -13,7 +13,7 @@
         "blog",
         "responsive"
     ],
-    "license": "MIT",
+    "license": "GPL-3.0-or-later",
     "features": [
         "Responsive Design",
         "SEO Optimized",
@@ -23,5 +23,17 @@
         "Related Articles",
         "Custom Pages"
     ],
-    "screenshot": ""
+    "screenshot": "screenshot.avif",
+    "changelog": {
+        "1.0.2": [
+            "Changed: License updated from MIT to GPL-3.0-or-later",
+            "Added: Theme Screenshot"
+        ],
+        "1.0.1": [
+            "Added: Custom Pages to features"
+        ],
+        "1.0.0": [
+            "Initial release"
+        ]
+    }
 }
