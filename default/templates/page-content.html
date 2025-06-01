@@ -3,11 +3,11 @@
         <h1 class="page-title">{{ metadata.title }}</h1>
     </header>
 
-    {{#if pageType === "normal"}}
+    {{#if metadata.pageType === "normal"}}
     <div class="page-content">{{ content }}</div>
 
-    <!--This is for custom pages and will be applied to the blog since it's the only custom page that we have-->
     {{#else}}
+    <!--This is for custom pages and will be applied to the blog since it's the only custom page that we have-->
     <div class="page-content">
         {{#if posts.length === 0}}
         <div class="no-posts-message">
@@ -15,7 +15,7 @@
         </div>
         {{#else}}
         <div class="post-grid">
-            {{#each posts }}
+            {{#each posts}}
             <article class="post-card">
                 <h3><a href="/post/{{ metadata.slug }}">{{ metadata.title }}</a></h3>
                 <div class="post-meta">

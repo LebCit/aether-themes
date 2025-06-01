@@ -5,11 +5,11 @@
         {{#include("templates/index.html")}}
         <!---->
         {{#elseif fileType === "page"}}
-        <!--#elseif the file type is a page #include "page.html" from the "templates" folder-->
+        <!--#elseif the file type is a page #include "page-content.html" from the "templates" folder-->
         {{#include("templates/page-content.html")}}
         <!---->
         {{#elseif fileType === "post"}}
-        <!--#elseif the file type is a post #include "post.html" from the "templates" folder-->
+        <!--#elseif the file type is a post #include "post-content.html" from the "templates" folder-->
         {{#include("templates/post-content.html")}}
         <!---->
         {{#elseif taxonomyRoute}}
