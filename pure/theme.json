@@ -1,7 +1,7 @@
 {
     "title": "Pure",
     "description": "Clean and minimal theme with responsive design, perfect for blogs and documentation",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "author": "LebCit",
     "authorUrl": "https://lebcit.github.io/",
     "tags": [
@@ -22,6 +22,9 @@
     ],
     "screenshot": "screenshot.avif",
     "changelog": {
+        "1.0.3": [
+            "Changed: Screenshot for improved theme presentation"
+        ],
         "1.0.2": [
             "Changed: License updated from MIT to GPL-3.0-or-later",
             "Added: Theme Screenshot"

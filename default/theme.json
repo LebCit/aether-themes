@@ -1,7 +1,7 @@
 {
     "title": "Default",
     "description": "Clean and minimal default theme with responsive design",
-    "version": "1.1.2",
+    "version": "1.1.3",
     "author": "LebCit",
     "authorUrl": "https://lebcit.github.io/",
     "tags": [
@@ -20,6 +20,9 @@
     ],
     "screenshot": "screenshot.avif",
     "changelog": {
+        "1.1.3": [
+            "Changed: Screenshot for improved theme presentation"
+        ],
         "1.1.2": [
             "Fixed: Correct the access to pageType via metadata",
             "Added: Missing custom footerCode in footer",
