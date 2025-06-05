@@ -1,7 +1,9 @@
 <h1>All {{taxonomiesType | capitalize}}</h1>
 
+{{#set sortedTaxonomies = taxonomies | sortBy("slug")}}
+
 <ul class="{{taxonomiesType}}-list">
-    {{#each taxonomies}}
+    {{#each sortedTaxonomies}}
     <li class="{{taxonomyType}}-list-item">
         <a href="/{{taxonomyType}}/{{slug}}" class="{{taxonomyType}}-link">{{name}}</a>
         <span class="post-count">({{count}} posts)</span>

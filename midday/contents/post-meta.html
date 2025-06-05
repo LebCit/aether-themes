@@ -1,0 +1,34 @@
+<div class="post-meta">
+    <div class="post-date-wrapper">
+        <span>Posted:</span>
+        <time class="post-date" datetime="{{metadata.createdAt}}">
+            {{metadata.publishDate | dateFormat('YYYY-MM-DD')}}
+        </time>
+
+        {{#if metadata.updatedAt}}
+        <span class="separator">|</span>
+        <span>Updated:</span>
+        <time class="post-updated-date" datetime="{{metadata.updatedAt}}">
+            {{metadata.updatedAt | dateFormat('YYYY-MM-DD')}}
+        </time>
+        {{/if}}
+    </div>
+
+    {{#if metadata.category}}
+    <div class="taxonomy-group">
+        <span>Category:</span>
+        <span class="post-category">
+            <a href="/category/{{metadata.category}}">{{metadata.category}}</a>
+        </span>
+    </div>
+    {{/if}}
+    <!---->
+    {{#if metadata.tags}}
+    <div class="taxonomy-group post-tags-group">
+        <span>Tagged:</span>
+        {{#each metadata.tags}}
+        <a class="post-tag" href="/tag/{{this}}">{{this}}</a>
+        {{/each}}
+    </div>
+    {{/if}}
+</div>

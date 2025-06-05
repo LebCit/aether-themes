@@ -1,7 +1,7 @@
 {
     "title": "Midday",
     "description": "Clean and responsive, with a bold typography, perfect for personal or company blogs",
-    "version": "1.0.2",
+    "version": "1.1.0",
     "author": "LebCit",
     "authorUrl": "https://lebcit.github.io/",
     "tags": [
@@ -25,6 +25,14 @@
     ],
     "screenshot": "screenshot.avif",
     "changelog": {
+        "1.1.0": [
+            "Added: Reusable template for post metadata",
+            "Added: New style rules for post meta",
+            "Added: New version of highlight.js supporting common languages",
+            "Changed: Screenshot for improved theme presentation",
+            "Improved: Taxonomies lists. Now in alphabetical order",
+            "Fixed: Typo in metadata entry (description → seoDescription)"
+        ],
         "1.0.2": [
             "Changed: License updated from MIT to GPL-3.0-or-later",
             "Added: Theme Screenshot"
