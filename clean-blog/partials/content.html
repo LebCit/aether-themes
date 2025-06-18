@@ -1,0 +1,28 @@
+<main class="mb-4 lh-lg">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <!-- Content by context  -->
+                {{#if notFoundRoute}}
+                <!-- If no content has been found, display the 404.html template content -->
+                {{#include("contents/404.html")}}
+                <!---->
+                {{#elseif homeRoute || taxonomyRoute || metadata.slug === "blog"}}
+                <!-- On the homepage and the blog, display the posts-listing.html template -->
+                {{#include("contents/posts-listing.html")}}
+                <!---->
+                {{#elseif fileType === "post"}}
+                <!-- For posts, display the post content and pagination -->
+                {{content}}
+                <!---->
+                {{#include("partials/pagination.html")}}
+                <!---->
+                {{#else}}
+                <!-- For normal pages, display the page content -->
+                {{content}}
+                <!---->
+                {{/if}}
+            </div>
+        </div>
+    </div>
+</main>

@@ -1,0 +1,58 @@
+{{#set featuredImageUrl = "/content/uploads" + metadata.featuredImage.url}}
+<!---->
+{{#if notFoundRoute}}
+<!---->
+{{#set featuredImageUrl =
+"/content/themes/clean-blog/assets/images/starry-night-sky-photography-blue-mountains-australia.avif"}}
+<!---->
+{{/if}}
+
+<header class="masthead" style="background-image: url({{featuredImageUrl}})">
+    <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="{{fileType === `post` ? `post-heading` : `page-heading`}}">
+                    {{#if fileType === "post"}}
+                    <h1>{{metadata.title}}</h1>
+                    {{#if metadata.subtitle}}
+                    <h2 class="subheading">{{metadata.subtitle}}</h2>
+                    {{/if}}
+                    <span class="meta">
+                        <span class="meta-author">
+                            Posted by {{metadata.author}} on {{metadata.publishDate | dateFormat("MMMM D, YYYY")}}
+                        </span>
+
+                        <!---->
+
+                        {{#if metadata && metadata.category}}
+                        <span class="meta-category">
+                            Category:
+                            <a href="/category/{{metadata.category}}">{{metadata.category}}</a>
+                        </span>
+                        {{/if}}
+
+                        <!---->
+
+                        {{#if metadata && metadata.tags}}
+                        <span class="meta-tags">
+                            Tags: {{#each metadata.tags}}
+                            <span class="tag"><a href="/tag/{{this}}">{{this}}</a></span>
+                            {{/each}}
+                        </span>
+                        {{/if}}
+                    </span>
+                    {{#else}}
+                    <h1>{{homeRoute ? site.siteTitle : metadata.title}}</h1>
+
+                    {{#if homeRoute && site.siteDescription}}
+                    <h2 class="subheading">{{site.siteDescription}}</h2>
+                    {{#elseif metadata.subtitle}}
+                    <h2 class="subheading">{{metadata.subtitle}}</h2>
+                    {{/if}}
+                    <!---->
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

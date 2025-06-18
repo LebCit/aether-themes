@@ -1,0 +1,29 @@
+{
+    "title": "Clean Blog",
+    "description": "Clean and responsive, with a clear typography, perfect for personal blogs",
+    "version": "1.0.0",
+    "author": "LebCit",
+    "authorUrl": "https://lebcit.github.io",
+    "tags": [
+        "blog",
+        "modern",
+        "responsive",
+        "simple",
+        "clean"
+    ],
+    "license": "GPL-3.0-or-later",
+    "features": [
+        "Responsive design",
+        "One Column",
+        "SEO optimized",
+        "Social media integration",
+        "Featured Images",
+        "Custom Pages"
+    ],
+    "screenshot": "screenshot.avif",
+    "changelog": {
+        "1.0.0": [
+            "Initial release"
+        ]
+    }
+}

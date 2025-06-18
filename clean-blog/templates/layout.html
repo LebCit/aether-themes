@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    {{#include("partials/head.html")}}
+    <body>
+        <!-- Navigation -->
+        {{#include("partials/menu.html")}}
+
+        <!-- Page Header -->
+        {{#include("partials/header.html")}}
+
+        <!-- Main Content -->
+        {{#include("partials/content.html")}}
+
+        <!-- Footer -->
+        {{#include("partials/footer.html")}}
+
+        <!-- JavaScript Files -->
+
+        <!-- 1. Bootstrap core JS -->
+        <script src="/content/themes/clean-blog/assets/vendors/bootstrap.bundle.min.js"></script>
+
+        <!-- 2. Highlight JS -->
+        {{#if contentRoute}}
+        <script
+            src="/content/themes/midday-custom/assets/vendors/highlight.min.js"
+            onload="hljs.highlightAll()"
+        ></script>
+        {{/if}}
+
+        <!-- 3. Core theme JS -->
+        <script type="module" src="/content/themes/clean-blog/assets/js/main.js"></script>
+
+        {{aetherBar}}
+    </body>
+</html>

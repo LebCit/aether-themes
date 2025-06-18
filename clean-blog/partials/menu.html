@@ -1,0 +1,53 @@
+<nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
+    <div class="container px-4 px-lg-5">
+        <a class="navbar-brand" href="/">{{site.siteTitle}}</a>
+        <!-- Offcanvas toggler for mobile/tablet -->
+        <button
+            class="navbar-toggler navbar-toggler-icon"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasNavbar"
+            aria-controls="offcanvasNavbar"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+        ></button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ms-auto py-4 py-lg-0">
+                <!-- Clean Blog menu is a top level menu only. -->
+                <!-- It doesn't support nested children under a parent. -->
+                <!-- That's why we retrieve top level items only -->
+                {{#each menuItems}}
+                <!---->
+                {{#if depth = 0}}
+                <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{{url}}">{{title}}</a></li>
+                {{/if}}
+                <!---->
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Bootstrap Offcanvas -->
+<div
+    class="offcanvas offcanvas-start text-bg-dark"
+    tabindex="-1"
+    id="offcanvasNavbar"
+    aria-labelledby="offcanvasNavbarLabel"
+>
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">{ LebCit }</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <ul class="navbar-nav flex-column">
+            {{#each menuItems}}
+            <!---->
+            {{#if depth = 0}}
+            <li class="nav-item"><a class="nav-link p-3" href="{{url}}">{{title}}</a></li>
+            {{/if}}
+            <!---->
+            {{/each}}
+        </ul>
+    </div>
+</div>

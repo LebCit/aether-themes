@@ -1,0 +1,19 @@
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="{{metadata.seoDescription || metadata.excerpt || site.siteDescription}}" />
+    <meta name="author" content="{{metadata.author}}" />
+    <title>{{homeRoute ? "Home" : metadata.title}} - {{site.siteTitle}}</title>
+    <link rel="icon" href="/content/uploads{{site.siteIcon}}" />
+
+    <!-- Google fonts-->
+    <link rel="stylesheet" href="/content/themes/clean-blog/assets/css/fonts.css" />
+
+    <!-- Highlight CSS -->
+    {{#if contentRoute}}
+    <link rel="stylesheet" href="/content/themes/clean-blog/assets/vendors/atom-one-dark.min.css" />
+    {{/if}}
+
+    <!-- Core theme CSS (includes Bootstrap) -->
+    <link href="/content/themes/clean-blog/assets/css/style.css" rel="stylesheet" />
+</head>

@@ -1,0 +1,20 @@
+{{#each posts}}
+<!-- Post preview-->
+<div class="post-preview">
+    <a href="/post/{{metadata.slug}}">
+        <h2 class="post-title">{{metadata.title}}</h2>
+        {{#if metadata.subtitle}}
+        <h3 class="post-subtitle">{{metadata.subtitle}}</h3>
+        {{/if}}
+    </a>
+
+    <p class="post-meta">Posted by {{metadata.author}} on {{metadata.publishDate | dateFormat("MMMM D, YYYY")}}</p>
+</div>
+
+<!-- Divider-->
+<hr class="my-4" />
+{{/each}}
+
+<!---->
+
+{{#include("partials/pagination.html")}}

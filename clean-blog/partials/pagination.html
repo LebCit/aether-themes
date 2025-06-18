@@ -1,0 +1,44 @@
+{{#if pagination || prevPost || nextPost}}
+<!-- Posts pagination -->
+<div class="d-flex justify-content-between mb-4">
+    {{#if pagination.nextPage}}
+    <!-- Older posts -->
+    <a href="{{pagination.urls.next}}" class="btn btn-primary text-uppercase" rel="next">← Older Posts</a>
+    {{/if}}
+
+    <!---->
+
+    {{#if pagination.prevPage}}
+    <!-- Newer posts -->
+    <a href="{{pagination.urls.prev}}" class="btn btn-primary text-uppercase ms-auto" rel="prev">Newer Posts →</a>
+    {{/if}}
+
+    <!---->
+
+    {{#if prevPost}}
+    <!-- Previous Post Link (only if there's a previous post) -->
+    <a
+        href="/post/{{prevPost.slug}}"
+        class="prev-post btn btn-primary btn-sm m-3"
+        rel="prev"
+        aria-label="Go to the previous post"
+    >
+        Previous: {{prevPost.title}}
+    </a>
+    {{/if}}
+
+    <!---->
+
+    {{#if nextPost}}
+    <!-- Next Post Link (only if there's a next post) -->
+    <a
+        href="/post/{{nextPost.slug}}"
+        class="next-post btn btn-primary btn-sm m-3 ms-auto"
+        rel="next"
+        aria-label="Go to the next post"
+    >
+        Next: {{nextPost.title}}
+    </a>
+    {{/if}}
+</div>
+{{/if}}
