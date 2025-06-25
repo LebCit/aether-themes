@@ -1,0 +1,61 @@
+<section id="posts-listing" class="page-content">
+    <div class="page-header">
+        <h1>{{homeRoute ? "Latest Posts" : metadata.title}}</h1>
+        <p class="page-description">
+            {{homeRoute ? site.siteDescription : metadata.slug === "blog" ? "All posts in one place!" : metadata.subtitle ? metadata.subtitle : metadata.excerpt ?
+            metadata.excerpt : metadata.seoDescription}}
+        </p>
+    </div>
+
+    <div class="posts-grid">
+        {{#each posts}}
+        <article class="post-card">
+            <header class="post-header">
+                <h2 class="post-title">
+                    <a href="/post/{{metadata.slug}}" data-page="post" data-post="{{metadata.id}}" class="post-link">
+                        {{metadata.title}}
+                    </a>
+                </h2>
+                <div class="post-meta">
+                    <time datetime="metadata.publishDate" class="post-date">
+                        {{metadata.publishDate | dateFormat("MMMM D, YYYY")}}
+                    </time>
+
+                    {{#if metadata.category}}
+                    <span class="post-category">
+                        <a href="/category/{{metadata.category}}">{{metadata.category}}</a>
+                    </span>
+                    {{/if}}
+                </div>
+            </header>
+            <p class="post-excerpt">{{metadata.excerpt ? metadata.excerpt : metadata.seoDescription}}</p>
+            <footer class="post-footer">
+                <a
+                    href="/post/{{metadata.slug}}"
+                    data-page="post"
+                    data-post="{{metadata.id}}"
+                    class="read-more"
+                    aria-label="Read more about {{metadata.title}}"
+                >
+                    <span>Read More</span>
+                    <svg
+                        class="read-more-icon"
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        aria-hidden="true"
+                        role="presentation"
+                    >
+                        <path d="M9 18l6-6-6-6" />
+                    </svg>
+                </a>
+            </footer>
+        </article>
+        {{/each}}
+    </div>
+</section>
+
+{{#include("partials/pagination.html")}}

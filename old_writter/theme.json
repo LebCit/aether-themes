@@ -1,0 +1,42 @@
+{
+    "title": "Old Writer",
+    "description": "A high-contrast, clean, and responsive theme designed for clarity and readability. Perfect for blogs, writing, and technical documentation.",
+    "version": "1.0.0",
+    "author": "LebCit",
+    "authorUrl": "https://lebcit.github.io/",
+    "tags": [
+        "old-writer",
+        "clean",
+        "minimal",
+        "responsive",
+        "accessible",
+        "dark-mode",
+        "high-contrast",
+        "typography",
+        "blog",
+        "writing",
+        "documentation",
+        "terminal",
+        "readable",
+        "simple",
+        "content-focused"
+    ],
+    "license": "GPL-3.0-or-later",
+    "features": [
+        "Responsive Design",
+        "High Contrast",
+        "Dark Mode",
+        "Accessibility First",
+        "Typography Focus",
+        "Minimal Layout",
+        "One Column",
+        "SEO Optimized",
+        "Content-Centric"
+    ],
+    "screenshot": "screenshot.avif",
+    "changelog": {
+        "1.0.0": [
+            "Initial release"
+        ]
+    }
+}

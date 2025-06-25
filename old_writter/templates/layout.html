@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    {{#include("partials/head.html")}}
+    <body>
+        <!-- Skip to main content link for screen readers -->
+        <a href="#main-content" class="skip-link">Skip to main content</a>
+
+        <!-- Header -->
+        {{#include("partials/header.html")}}
+
+        <!-- Main Content -->
+        <main id="main-content" class="main-content">
+            <div class="container">{{#include("partials/content.html")}}</div>
+        </main>
+
+        <!-- Footer -->
+        {{#include("partials/footer.html")}}
+
+        <!-- JavaScript Files -->
+        <!-- Core theme JS -->
+        <script type="module" src="/content/themes/old_writter/assets/js/main.js"></script>
+    </body>
+</html>

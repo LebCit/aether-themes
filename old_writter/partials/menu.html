@@ -1,0 +1,16 @@
+<nav class="main-nav" role="navigation" aria-label="Main navigation">
+    <ul class="nav-list">
+        <!-- Old Writer menu supports top-level items only. -->
+        <!-- Nested child items under a parent are not supported. -->
+        <!-- Therefore, we retrieve only top-level menu items. -->
+        {{#each menuItems}}
+        <!---->
+        {{#if depth = 0}}
+        <li class="{{class ? `nav-item` + ` ` + class : `nav-item` }}">
+            <a class="nav-link" href="{{url}}" data-page="{{metadata.slug}}"><span>{{title}}</span></a>
+        </li>
+        {{/if}}
+        <!---->
+        {{/each}}
+    </ul>
+</nav>

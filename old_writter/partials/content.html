@@ -1,0 +1,18 @@
+<!-- Content by context  -->
+{{#if notFoundRoute}}
+<!-- If no content has been found, display the 404.html template content -->
+{{#include("contents/404.html")}}
+<!---->
+{{#elseif homeRoute || taxonomyRoute || metadata.slug === "blog"}}
+<!-- For home, blog, and taxonomy pages, display the posts-listing.html template -->
+{{#include("contents/posts-list.html")}}
+<!---->
+{{#elseif fileType === "post"}}
+<!-- For posts, display the post content template -->
+{{#include("contents/post-content.html")}}
+<!---->
+{{#else}}
+<!-- For normal pages, display the page content template -->
+{{#include("contents/page-content.html")}}
+<!---->
+{{/if}}

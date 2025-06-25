@@ -1,0 +1,18 @@
+{{#if pagination}}
+<!-- Posts pagination -->
+<div class="posts-pagination">
+    <div class="posts-nav">
+        {{#if pagination.nextPage}}
+        <!-- Older posts -->
+        <a href="{{pagination.urls.next}}" rel="next">Older Posts</a>
+        {{/if}}
+
+        <!---->
+
+        {{#if pagination.prevPage}}
+        <!-- Newer posts -->
+        <a href="{{pagination.urls.prev}}" rel="prev">Newer Posts</a>
+        {{/if}}
+    </div>
+</div>
+{{/if}}
