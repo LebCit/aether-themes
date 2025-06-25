@@ -2,7 +2,7 @@
   {
     "title": "Clean Blog",
     "description": "Clean and responsive, with a clear typography, perfect for personal blogs",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "author": "LebCit",
     "authorUrl": "https://lebcit.github.io",
     "tags": [
@@ -23,6 +23,9 @@
     ],
     "screenshot": "screenshot.avif",
     "changelog": {
+      "1.0.2": [
+        "Fixed: Renamed theme to clean_blog for consistency"
+      ],
       "1.0.1": [
         "Fixed: Corrected static assets paths"
       ],
@@ -30,10 +33,10 @@
         "Initial release"
       ]
     },
-    "lastUpdated": "2025-06-19T00:54:20+03:00",
-    "marketplaceName": "clean-blog",
+    "lastUpdated": "2025-06-19T01:02:15+03:00",
+    "marketplaceName": "clean_blog",
     "sourceRepo": "LebCit/aether-themes",
-    "screenshotUrl": "https://LebCit.github.io/aether-themes/screenshots/clean-blog-screenshot.avif"
+    "screenshotUrl": "https://LebCit.github.io/aether-themes/screenshots/clean_blog-screenshot.avif"
   },
   {
     "title": "Default",
