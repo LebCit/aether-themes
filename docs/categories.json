@@ -1,13 +1,22 @@
 [
+  "accessible",
   "blog",
   "bold",
   "clean",
+  "content-focused",
+  "dark-mode",
   "default",
   "documentation",
+  "high-contrast",
   "midday",
   "minimal",
   "modern",
+  "old-writer",
   "pure",
+  "readable",
   "responsive",
-  "simple"
+  "simple",
+  "terminal",
+  "typography",
+  "writing"
 ]
