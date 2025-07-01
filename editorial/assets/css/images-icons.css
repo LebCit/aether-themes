@@ -1,0 +1,121 @@
+.image {
+    border-radius: var(--border-radius);
+    border: 0;
+    display: inline-block;
+    position: relative;
+}
+
+.image img {
+    border-radius: var(--border-radius);
+    display: block;
+}
+
+.image.left,
+.image.right {
+    max-width: 40%;
+}
+
+.image.left img,
+.image.right img {
+    width: 100%;
+}
+
+.image.left {
+    float: left;
+    padding: 0 1.5em 1em 0;
+    top: 0.25em;
+}
+
+.image.right {
+    float: right;
+    padding: 0 0 1em 1.5em;
+    top: 0.25em;
+}
+
+.image.fit {
+    display: block;
+    margin: 0 0 2em 0;
+    width: 100%;
+}
+
+.image.fit img {
+    width: 100%;
+}
+
+.image.main {
+    display: block;
+    margin: 0 0 3em 0;
+    width: 100%;
+    max-height: 400px;
+}
+
+.image.main img {
+    width: 100%;
+}
+
+a.image {
+    overflow: hidden;
+}
+
+a.image img {
+    transition: transform 0.2s ease;
+}
+
+a.image:hover img {
+    transform: scale(1.075);
+}
+
+/* Box */
+.box {
+    border-radius: var(--border-radius);
+    border: 1px solid var(--color-border);
+    margin-bottom: 2em;
+    padding: 1.5em;
+}
+
+.box > :last-child,
+.box > :last-child > :last-child,
+.box > :last-child > :last-child > :last-child {
+    margin-bottom: 0;
+}
+
+.box.alt {
+    border: 0;
+    border-radius: 0;
+    padding: 0;
+}
+
+/* Icons */
+.icon {
+    text-decoration: none;
+    border-bottom: none;
+    position: relative;
+}
+
+.icon::before {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    line-height: 1;
+    text-transform: none !important;
+    font-weight: 400;
+}
+
+.icon > .label {
+    display: none;
+}
+
+.icon::before {
+    line-height: inherit;
+}
+
+.icon.solid::before {
+    font-weight: 900;
+}
+
+/* .icon.brands::before {
+    font-family: "Font Awesome 6 Brands";
+} */

@@ -1,0 +1,43 @@
+{
+    "title": "Editorial",
+    "description": "Responsive and accessible, designed with care and attention to detail. Perfect for editorial websites, blogs, and creative portfolios.",
+    "version": "1.0.0",
+    "author": "LebCit",
+    "authorUrl": "https://lebcit.github.io/",
+    "tags": [
+        "editorial",
+        "modern",
+        "bold",
+        "clean",
+        "blog",
+        "portfolio",
+        "responsive",
+        "accessible",
+        "sidebar",
+        "grid-layout",
+        "social-media",
+        "search"
+    ],
+    "license": "GPL-3.0-or-later",
+    "features": [
+        "Responsive Design",
+        "SEO Optimized",
+        "Typography Focus",
+        "Accessibility First",
+        "Two Columns",
+        "One Column",
+        "Featured Images",
+        "Related Articles",
+        "Custom Pages",
+        "CSS Grid Layout",
+        "Iconoir Icons",
+        "Mobile-First Design",
+        "Site Search"
+    ],
+    "screenshot": "screenshot.avif",
+    "changelog": {
+        "1.0.0": [
+            "Initial release"
+        ]
+    }
+}

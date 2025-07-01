@@ -1,0 +1,69 @@
+{{#if fileType === "post"}}
+<section class="banner main-section">
+    <div class="banner-content">
+        <header class="section-header">
+            <h1>{{metadata.title}}</h1>
+
+            <div class="post-meta" role="contentinfo">
+                <div class="post-meta-author">
+                    <span>
+                        <strong>Author:</strong>
+                        {{metadata.author}}
+                    </span>
+                </div>
+
+                {{#if metadata.category}}
+                <div class="post-meta-category">
+                    <span><strong>Category:</strong></span>
+                    <a href="/category/{{metadata.category}}">{{metadata.category}}</a>
+                </div>
+                {{/if}}
+
+                <!-- Dynamic Markup Separator -->
+
+                {{#if metadata.tags}}
+                <div class="post-meta-tags">
+                    <span><strong>Tags:</strong></span>
+                    {{#each metadata.tags}}
+                    <a href="/tag/{{this}}">{{this}}</a>
+                    {{/each}}
+                </div>
+                {{/if}}
+
+                <!-- Dynamic Markup Separator -->
+
+                <div class="post-meta-date">
+                    <span><strong>Posted:</strong></span>
+                    <time class="post-date" datetime="{{metadata.createdAt}}">
+                        {{metadata.publishDate | dateFormat('YYYY-MM-DD')}}
+                    </time>
+                </div>
+            </div>
+        </header>
+    </div>
+
+    {{#if metadata.featuredImage}}
+    <div class="banner-image">
+        <img src="/content/uploads{{metadata.featuredImage.url}}" alt="{{metadata.featuredImage.alt}}" />
+    </div>
+    {{/if}}
+</section>
+{{#else}}
+<section>
+    <header class="main">
+        <h1>{{metadata.title}}</h1>
+    </header>
+
+    {{#if metadata.featuredImage}}
+    <span class="image main">
+        <img src="/content/uploads{{metadata.featuredImage.url}}" alt="{{metadata.featuredImage.alt}}" />
+    </span>
+    {{/if}}
+</section>
+{{/if}}
+
+<!-- Markdown Content Parsed to HTML -->
+{{content}}
+
+<!-- Pagination -->
+{{#include("partials/pagination.html")}}

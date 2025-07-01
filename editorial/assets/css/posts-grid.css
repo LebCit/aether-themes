@@ -1,0 +1,35 @@
+.posts {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(300px, 1fr));
+    gap: 3rem;
+}
+
+.post-card {
+    position: relative;
+}
+
+.post-image {
+    margin-bottom: 2rem;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+}
+
+.post-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    transition: var(--transition);
+    border-radius: var(--border-radius);
+}
+
+.post-image:hover img {
+    transform: scale(1.075);
+}
+
+.post-card h3 {
+    margin: 1rem 0;
+}
+
+.post-card p {
+    margin-bottom: 1rem;
+}

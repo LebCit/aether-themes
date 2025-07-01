@@ -1,0 +1,77 @@
+<!-- Accessible Search Modal -->
+<div class="search-modal-overlay" id="searchModalOverlay" aria-hidden="true">
+    <div
+        class="search-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="searchModalTitle"
+        aria-describedby="searchModalDesc"
+    >
+        <h2 id="searchModalTitle" class="visually-hidden">Search Dialog</h2>
+        <div id="searchModalDesc" class="visually-hidden">
+            Search through articles and topics using keywords. Use arrow keys to navigate results, Enter to select, or
+            Escape to close.
+        </div>
+
+        <div class="search-modal-header">
+            <div class="search-modal-input-wrapper">
+                <span class="search-modal-icon">{{#include("svg/search-icon.html")}}</span>
+                <label for="searchModalInput" class="visually-hidden">Search</label>
+                <input
+                    type="text"
+                    class="search-modal-input"
+                    id="searchModalInput"
+                    placeholder="Search articles, topics..."
+                    aria-label="Search input"
+                    aria-describedby="searchModalDesc"
+                    autocomplete="off"
+                    spellcheck="false"
+                />
+                <button class="search-modal-close" id="searchModalClose" aria-label="Close search dialog" type="button">
+                    {{#include("svg/close-icon.html")}}
+                </button>
+            </div>
+        </div>
+
+        <div
+            class="search-modal-results"
+            id="searchModalResults"
+            role="region"
+            aria-live="polite"
+            aria-label="Search results"
+        >
+            <div class="search-loading" id="searchModalLoading" aria-hidden="true">
+                <p>Loading search...</p>
+            </div>
+            <div class="search-error" id="searchModalError" aria-hidden="true">
+                <p>Search is currently unavailable</p>
+                <small>Please try again later</small>
+            </div>
+            <div class="search-results" style="display: none" role="listbox" aria-label="Search results">
+                <div class="search-results-inner"></div>
+            </div>
+        </div>
+
+        <div class="search-modal-footer">
+            <div class="search-shortcuts" aria-hidden="true">
+                <div class="search-shortcut">
+                    <span class="search-key">↵</span>
+                    <span>to select</span>
+                </div>
+                <div class="search-shortcut">
+                    <span class="search-key">↑</span>
+                    <span class="search-key">↓</span>
+                    <span>to navigate</span>
+                </div>
+                <div class="search-shortcut">
+                    <span class="search-key">esc</span>
+                    <span>to close</span>
+                </div>
+            </div>
+            <div class="search-powered" aria-hidden="true">
+                Search by
+                <a href="https://aether-cms.pages.dev/">Aether CMS</a>
+            </div>
+        </div>
+    </div>
+</div>

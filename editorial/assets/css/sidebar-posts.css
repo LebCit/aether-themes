@@ -1,0 +1,27 @@
+.mini-posts .mini-post {
+    border-top: 1px solid var(--color-border);
+    margin-top: 2rem;
+    padding-top: 2rem;
+}
+
+.mini-posts .mini-post:first-child {
+    border-top: none;
+    margin-top: 0;
+    padding-top: 0;
+}
+
+.mini-post-image {
+    margin-bottom: 1.5rem;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+}
+
+.mini-post-image img {
+    width: 100%;
+    height: auto;
+    transition: var(--transition);
+}
+
+.mini-post-image:hover img {
+    transform: scale(1.075);
+}

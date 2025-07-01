@@ -1,0 +1,32 @@
+<nav class="sidebar-section">
+    <header class="section-header">
+        <h2>Menu</h2>
+    </header>
+    <ul class="nav-list">
+        {{#each menuItems}}
+        <!---->
+        {{#if depth = 0 && !hasChildren}}
+        <li class="{{class ? `nav-item` + ` ` + class : `nav-item`}}">
+            <a href="{{url}}" class="nav-link" target="{{target}}">{{title}}</a>
+        </li>
+        {{#elseif depth = 0 && hasChildren}}
+        <li class="{{class ? `nav-item` + ` ` + class : `nav-item`}}">
+            <button class="nav-link nav-opener" aria-expanded="false" aria-controls="submenu1">{{title}}</button>
+            {{#set parentId = id}}
+            <ul class="nav-submenu" aria-hidden="true">
+                {{#each1 menuItems}}
+                <!---->
+                {{#if depth = 1 && parent && parent = parentId}}
+                <li class="{{class}}">
+                    <a href="{{url}}" class="nav-link" target="{{target}}">{{title}}</a>
+                </li>
+                {{/if}}
+                <!---->
+                {{/each1}}
+            </ul>
+        </li>
+        {{/if}}
+        <!---->
+        {{/each}}
+    </ul>
+</nav>

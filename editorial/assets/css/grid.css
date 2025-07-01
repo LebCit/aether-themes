@@ -1,0 +1,60 @@
+.row {
+    display: grid;
+    gap: 1.5rem;
+    align-items: start;
+}
+
+.row.gtr-uniform > * > :last-child {
+    margin-bottom: 0;
+}
+
+.row.gtr-200 {
+    gap: 3rem;
+}
+
+.row.gtr-50 {
+    gap: 0.75rem;
+}
+
+/* Column Classes */
+.col-1 {
+    grid-column: span 1;
+}
+.col-2 {
+    grid-column: span 2;
+}
+.col-3 {
+    grid-column: span 3;
+}
+.col-4 {
+    grid-column: span 4;
+}
+.col-5 {
+    grid-column: span 5;
+}
+.col-6 {
+    grid-column: span 6;
+}
+.col-7 {
+    grid-column: span 7;
+}
+.col-8 {
+    grid-column: span 8;
+}
+.col-9 {
+    grid-column: span 9;
+}
+.col-10 {
+    grid-column: span 10;
+}
+.col-11 {
+    grid-column: span 11;
+}
+.col-12 {
+    grid-column: span 12;
+}
+
+/* Default grid is 12 columns */
+.row {
+    grid-template-columns: repeat(12, 1fr);
+}

@@ -1,0 +1,32 @@
+<section class="main-section">
+    <header class="section-header">
+        <h2>{{metadata.title}}</h2>
+        {{#if metadata.slug === "blog"}}
+        <p class="section-intro">All posts in one place.</p>
+        {{/if}}
+    </header>
+
+    <div class="posts">
+        {{#each posts}}
+        <article class="post-card">
+            {{#if metadata.featuredImage}}
+            <a href="/post/{{metadata.slug}}" class="post-image">
+                <img
+                    src="/content/uploads{{metadata.featuredImage.url}}"
+                    alt="{{metadata.featuredImage.alt || `Featured Image of:` + ` ` + metadata.title }}"
+                />
+            </a>
+            {{/if}}
+            <h3>{{metadata.title}}</h3>
+            {{#if metadata.excerpt || metadata.seoDescription}}
+            <p>{{metadata.excerpt || metadata.seoDescription}}</p>
+            {{/if}}
+            <ul class="actions">
+                <li><a href="#" class="button">More</a></li>
+            </ul>
+        </article>
+        {{/each}}
+    </div>
+</section>
+
+{{#include("partials/pagination.html")}}

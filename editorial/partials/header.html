@@ -1,0 +1,30 @@
+<header class="header">
+    <a href="/" class="logo" aria-label="{{site.siteTitle}} homepage">
+        <strong aria-hidden="true">{{site.siteTitle}}</strong>
+    </a>
+
+    <!-- Search bar in center -->
+    <form class="header-search-form">
+        <div class="header-search-wrapper">
+            <label for="site-search" class="visually-hidden">Search articles and topics</label>
+            <input type="text" id="site-search" class="header-search-input" placeholder="Search articles, topics..." />
+            <button type="submit" class="header-search-btn" aria-label="Search">
+                {{#include("svg/search-icon.html")}}
+            </button>
+        </div>
+    </form>
+
+    <ul class="social-icons">
+        <li>
+            <a href="https://github.com/LebCit/aether-cms" aria-label="GitHub">{{#include("svg/github-icon.html")}}</a>
+        </li>
+        <li>
+            <a href="https://www.npmjs.com/package/create-aether-cms" aria-label="NPM">
+                {{#include("svg/npm-icon.html")}}
+            </a>
+        </li>
+        <li>
+            <a href="https://aether-cms.pages.dev/" aria-label="Website">{{#include("svg/globe-icon.html")}}</a>
+        </li>
+    </ul>
+</header>

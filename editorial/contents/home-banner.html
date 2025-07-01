@@ -1,0 +1,33 @@
+<section class="banner main-section">
+    <div class="banner-content">
+        <header>
+            {{#set latestPost = posts[0]}}
+            <h1>{{latestPost.metadata.title}}</h1>
+            {{#if latestPost.metadata.subtitle}}
+            <p><strong>{{latestPost.metadata.subtitle}}</strong></p>
+            {{/if}}
+        </header>
+        {{#if latestPost.metadata.excerpt || latestPost.metadata.seoDescription}}
+        <p>{{latestPost.metadata.excerpt || latestPost.metadata.seoDescription}}</p>
+        {{/if}}
+        <ul class="actions">
+            <li>
+                <a
+                    href="/post/{{latestPost.metadata.slug}}"
+                    class="button big"
+                    aria-label="Read more about {{latestPost.metadata.title}}"
+                >
+                    Read More
+                </a>
+            </li>
+        </ul>
+    </div>
+    {{#if latestPost.metadata.featuredImage}}
+    <div class="banner-image">
+        <img
+            src="/content/uploads{{latestPost.metadata.featuredImage.url}}"
+            alt="{{latestPost.metadata.featuredImage.alt}}"
+        />
+    </div>
+    {{/if}}
+</section>

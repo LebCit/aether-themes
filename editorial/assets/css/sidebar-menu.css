@@ -1,0 +1,87 @@
+.nav-list {
+    list-style: none;
+    padding: 0;
+}
+
+.nav-item {
+    border-top: 1px solid var(--color-border);
+    margin-top: 0.5rem;
+    padding-top: 0.5rem;
+    padding-left: 0;
+}
+
+.nav-item:first-child {
+    border-top: none;
+    margin-top: 0;
+    padding-top: 0;
+}
+
+.nav-link {
+    display: block;
+    padding: 0.625rem 0;
+    font-size: 0.9em;
+    font-family: var(--font-heading);
+    font-weight: 400;
+    letter-spacing: 0.075em;
+    text-transform: uppercase;
+    color: var(--color-heading);
+    border-bottom: none;
+    transition: var(--transition);
+    position: relative;
+}
+
+.nav-link:hover {
+    color: var(--color-primary);
+    background-color: inherit; /* Removes red background on .nav-opener button */
+}
+
+.nav-opener {
+    cursor: pointer;
+    background: none;
+    border: none;
+    text-align: left;
+    display: block; /* Ensures it takes full width */
+    width: 100%;
+    position: relative; /* Needed for ::after absolute positioning */
+    padding-right: 1.5rem; /* Gives space for the arrow */
+}
+
+.nav-opener::after {
+    content: "\25BE";
+    font-weight: 900;
+    position: absolute;
+    right: 0;
+    color: var(--color-text);
+    transition: var(--transition);
+    font-size: 1.5rem;
+}
+
+.nav-opener:hover::after {
+    color: var(--color-primary);
+}
+
+.nav-opener.active::after {
+    transform: rotate(-180deg);
+}
+
+.nav-submenu {
+    list-style: none;
+    padding-left: 1rem;
+    margin: 0.5rem 0 1.5rem 0;
+    color: var(--color-placeholder);
+    display: none;
+}
+
+.nav-submenu.active {
+    display: block;
+}
+
+.nav-submenu.active li {
+    padding-left: 0;
+}
+
+.nav-submenu .nav-link {
+    font-size: 0.8em;
+    margin: 0.5rem 0;
+    padding: 0.5rem 0;
+}

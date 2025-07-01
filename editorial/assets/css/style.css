@@ -1,0 +1,85 @@
+/**
+ * Editorial Theme for Aether CMS
+ * Author: LebCit (https://lebcit.github.io/)
+ * License: GPLv3 or later
+ * Version: 1.0.0
+ * 
+ * Inspired by the design of "Editorial" by HTML5 UP (https://html5up.net/), CC BY 3.0.
+ * This is a complete rewrite using modern web technologies, not a derivative of the original codebase.
+ * No original code was reused.
+ */
+
+/* CSS Reset */
+@import url("./reset.css");
+
+/* CSS Variables */
+@import url("./variables.css");
+
+/* Typography */
+@import url("./typography.css");
+
+/* Utilities */
+@import url("./utilities.css");
+
+/* Sidebar */
+@import url("./sidebar.css");
+
+/* Navigation */
+@import url("./sidebar-menu.css");
+
+/* Mini Posts */
+@import url("./sidebar-posts.css");
+
+/* Contact */
+@import url("./sidebar-contact.css");
+
+/* Main Content */
+@import url("./main-content.css");
+
+/* Header */
+@import url("./header.css");
+
+/* Banner */
+@import url("./banner.css");
+
+/* Buttons */
+@import url("./buttons.css");
+
+/* Section Headers */
+@import url("./section-header.css");
+
+/* Features */
+@import url("./features.css");
+
+/* Posts Grid */
+@import url("./posts-grid.css");
+
+/* Grid System */
+@import url("./grid.css");
+
+/* Lists */
+@import url("./lists.css");
+
+/* Form Elements */
+@import url("./form-elements.css");
+
+/* Tables */
+@import url("./table.css");
+
+/* Images and icons */
+@import url("./images-icons.css");
+
+/* Main Footer */
+@import url("./footer.css");
+
+/* Responsive Design */
+@import url("./responsive.css");
+
+/* Search */
+@import url("./search.css");
+
+/* Loading Animation */
+body.is-preload * {
+    animation: none !important;
+    transition: none !important;
+}

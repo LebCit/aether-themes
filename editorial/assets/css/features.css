@@ -1,0 +1,47 @@
+.features {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(300px, 1fr));
+    gap: 3rem;
+}
+
+.feature {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.feature-icon {
+    flex-shrink: 0;
+    width: 10rem;
+    height: 10rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.feature-icon::before {
+    content: "";
+    position: absolute;
+    width: 7rem;
+    height: 7rem;
+    border: 2px solid var(--color-border);
+    border-radius: 0.25rem;
+    transform: rotate(45deg);
+}
+
+.feature-icon svg {
+    width: 3rem;
+    height: auto;
+    color: var(--color-primary);
+    position: relative;
+    z-index: 1;
+}
+
+.feature-content h3 {
+    margin-bottom: 0.5rem;
+}
+
+.feature-content p {
+    margin-bottom: 0;
+}

@@ -1,0 +1,26 @@
+.banner {
+    display: flex;
+    gap: 4rem;
+    align-items: stretch;
+}
+
+.banner-content {
+    flex: 1;
+}
+
+.banner-content h1 {
+    margin-top: -0.125rem;
+}
+
+.banner-image {
+    flex: 1;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+}
+
+.banner-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    object-position: center;
+}

@@ -1,0 +1,125 @@
+ol {
+    list-style: decimal;
+    margin: 0 0 2em 0;
+    padding-left: 1.25em;
+}
+
+ol li {
+    padding-left: 0.25em;
+}
+
+ul {
+    list-style: disc;
+    margin: 0 0 2em 0;
+    padding-left: 1em;
+}
+
+ul li {
+    padding-left: 0.5em;
+}
+
+ul.alt {
+    list-style: none;
+    padding-left: 0;
+}
+
+ul.alt li {
+    border-top: 1px solid var(--color-border);
+    padding: 0.5em 0;
+}
+
+ul.alt li:first-child {
+    border-top: 0;
+    padding-top: 0;
+}
+
+dl {
+    margin: 0 0 2em 0;
+}
+
+dl dt {
+    display: block;
+    font-weight: 600;
+    margin: 0 0 1em 0;
+}
+
+dl dd {
+    margin-left: 2em;
+}
+
+/* Icons List */
+ul.icons {
+    cursor: default;
+    list-style: none;
+    padding-left: 0;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+ul.icons li {
+    display: inline-block;
+    padding: 0;
+}
+
+ul.icons li .icon {
+    color: inherit;
+}
+
+ul.icons li .icon::before {
+    font-size: 1.25em;
+}
+
+/* Pagination */
+ul.pagination {
+    cursor: default;
+    list-style: none;
+    padding-left: 0;
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+}
+
+ul.pagination li {
+    display: flex;
+    flex: 1;
+    padding-left: 0;
+    vertical-align: middle;
+}
+
+ul.pagination li > .page {
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    border-bottom: 0;
+    border-radius: var(--border-radius);
+    display: inline-block;
+    font-size: 0.8em;
+    font-weight: 600;
+    height: 2em;
+    line-height: 2em;
+    min-width: 2em;
+    padding: 0 0.5em;
+    text-align: center;
+}
+
+ul.pagination li > .page.active {
+    background-color: var(--color-primary);
+    color: #ffffff;
+}
+
+ul.pagination li > .page.active:hover {
+    background-color: var(--color-primary-hover);
+}
+
+ul.pagination li a {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    line-height: inherit;
+}
+
+.posts-pagination ul.pagination li a {
+    height: 3.5rem;
+}

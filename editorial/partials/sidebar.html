@@ -1,0 +1,106 @@
+<aside class="sidebar" id="sidebar">
+    <div class="sidebar-inner">
+        <!-- Logo -->
+        <section class="sidebar-section logo-section">
+            <div class="sidebar-logo">
+                {{#if site.siteLogo}}
+                <a href="/">
+                    <img
+                        src="/content/uploads{{site.siteLogo}}"
+                        alt="{{site.siteTitle}} - return to homepage"
+                        class="logo-image"
+                    />
+                </a>
+                {{#else}}
+                <h2 class="logo-text">
+                    <a href="/" aria-label="{{site.siteTitle}} homepage">
+                        <span aria-hidden="true">{{site.siteTitle}}</span>
+                    </a>
+                </h2>
+                {{/if}}
+            </div>
+        </section>
+
+        <!-- Menu -->
+        {{#include("partials/menu.html")}}
+
+        <!-- Mini Posts -->
+        {{#if fileType === "post" && metadata.relatedPosts}}
+        <section class="sidebar-section">
+            <header class="section-header">
+                <h2>You Might Also Like</h2>
+            </header>
+            <div class="mini-posts">
+                {{#each metadata.relatedPostsData}}
+                <article class="mini-post">
+                    <a href="/post/{{slug}}" class="mini-post-image" aria-label="Read: {{title}}">
+                        {{#if metadata.featuredImage}}
+                        <img
+                            src="/content/uploads{{featuredImage.url}}"
+                            alt="{{featuredImage.alt || `Featured image for the post:` + ` ` + title}}"
+                        />
+                        {{/if}}
+                    </a>
+                    <p>{{excerpt || seoDescription || subtitle || title}}</p>
+                </article>
+                {{/each}}
+            </div>
+            <ul class="actions">
+                <li><a href="/blog" class="button" aria-label="Read more blog posts">More</a></li>
+            </ul>
+        </section>
+        {{/if}}
+
+        <!-- Contact -->
+        <section class="sidebar-section" aria-labelledby="contact-heading">
+            <header class="section-header">
+                <h2 id="contact-heading">Get in touch</h2>
+            </header>
+            <p>
+                We'd love to hear from you. Whether you have a question, feedback, or just want to say hello, feel free
+                to reach out. You can contact us by email, phone, or visit us at our office in Beirut.
+            </p>
+            <ul class="contact-list">
+                <li class="contact-item email">
+                    <strong>Email:</strong>
+                    <a href="mailto:info@beirutnationalmuseum.com">info@beirutnationalmuseum.com</a>
+                </li>
+                <li class="contact-item phone">
+                    <strong>Phone:</strong>
+                    <a href="tel:+9611426703">(+961) 1-426-703</a>
+                </li>
+                <li class="contact-item address">
+                    <strong>Address:</strong>
+                    <br />
+                    Corner of Damascus Street & Abdallah El-Yafi Avenue
+                    <br />
+                    Beirut, Lebanon
+                    <br />
+                    P.O. Box 11-8288
+                </li>
+            </ul>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>
+                &copy; {{year}} - {{site.siteTitle}}
+
+                <br />
+
+                Images:
+                <a href="https://unsplash.com">Unsplash</a>
+
+                <br />
+
+                Inspired By:
+                <a href="https://html5up.net">HTML5 UP</a>
+
+                <br />
+
+                Author:
+                <a href="https://lebcit.github.io/">LebCit</a>
+            </p>
+        </footer>
+    </div>
+</aside>

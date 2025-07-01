@@ -1,0 +1,41 @@
+.section-header h2,
+.main h2 {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 2rem;
+}
+
+.section-header h2 {
+    font-size: 1.2rem;
+}
+
+.main h2 {
+    font-size: 1.75rem;
+}
+
+.section-header h2::after,
+.main h2::after {
+    content: "";
+    position: absolute;
+    bottom: -0.5rem;
+    left: 0;
+    right: 0.75rem;
+    height: 3px;
+    background: var(--color-primary);
+    width: 110%;
+}
+
+.header.main > :last-child {
+    margin-bottom: 1rem;
+}
+
+.header.main h2::after {
+    display: none;
+}
+
+.section-header .section-intro,
+.main .section-intro {
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-top: 0.5rem;
+}

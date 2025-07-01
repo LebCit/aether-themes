@@ -1,0 +1,46 @@
+{{#if pagination || prevPost || nextPost}}
+<nav
+    aria-label="{{pagination.urls ? `Posts Pagination` : `Post Navigation`}}"
+    class="{{pagination.urls ? `posts-pagination` : `post-navigation`}}"
+>
+    <ul class="pagination">
+        {{#if pagination.nextPage}}
+        <!-- Older Posts (only if there's a next page) -->
+        <li>
+            <a href="{{pagination.urls.next}}" class="prev-page button" aria-label="Older Posts">Older Posts</a>
+            {{/if}}
+        </li>
+
+        <!-- Dynamic Markup Separator -->
+
+        {{#if pagination.prevPage}}
+        <!-- Newer Posts (only if there's a previous page) -->
+        <li>
+            <a href="{{pagination.urls.prev}}" class="next-page button" aria-label="Newer Posts">Newer Posts</a>
+        </li>
+        {{/if}}
+
+        <!-- Dynamic Markup Separator -->
+
+        {{#if prevPost}}
+        <!-- Previous Post Link (only if there's a previous post) -->
+        <li>
+            <a href="/post/{{prevPost.slug}}" class="prev-post button" rel="prev" aria-label="Go to the previous post">
+                Previous: {{prevPost.title}}
+            </a>
+        </li>
+        {{/if}}
+
+        <!--Dynamic Markup Separator-->
+
+        {{#if nextPost}}
+        <!-- Next Post Link (only if there's a next post) -->
+        <li>
+            <a href="/post/{{nextPost.slug}}" class="next-post button" rel="next" aria-label="Go to the next post">
+                Next: {{nextPost.title}}
+            </a>
+        </li>
+        {{/if}}
+    </ul>
+</nav>
+{{/if}}
