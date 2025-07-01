@@ -140,7 +140,7 @@
   {
     "title": "Old Writer",
     "description": "A high-contrast, clean, and responsive theme designed for clarity and readability. Perfect for blogs, writing, and technical documentation.",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "author": "LebCit",
     "authorUrl": "https://lebcit.github.io/",
     "tags": [
@@ -174,14 +174,17 @@
     ],
     "screenshot": "screenshot.avif",
     "changelog": {
+      "1.0.1": [
+        "Fixed: Theme name. Styles and scripts paths."
+      ],
       "1.0.0": [
         "Initial release"
       ]
     },
-    "lastUpdated": "2025-06-25T03:45:53+03:00",
-    "marketplaceName": "old_writter",
+    "lastUpdated": "2025-06-25T04:00:09+03:00",
+    "marketplaceName": "old_writer",
     "sourceRepo": "LebCit/aether-themes",
-    "screenshotUrl": "https://LebCit.github.io/aether-themes/screenshots/old_writter-screenshot.avif"
+    "screenshotUrl": "https://LebCit.github.io/aether-themes/screenshots/old_writer-screenshot.avif"
   },
   {
     "title": "Pure",
